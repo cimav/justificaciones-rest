@@ -1,0 +1,4 @@
+
+
+ grant all privileges on justificaciones.* to 'root'@'10.0.4.40' identified by '****'  with grant option;
+

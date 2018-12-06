@@ -1,0 +1,42 @@
+# coding: utf-8
+
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: root
+  password:
+  socket: <%= ENV['RAILS_ENV'].include?('production') ? '/var/lib/mysql/mysql.sock' : '/tmp/mysql.sock' %>
+
+development:
+  <<: *default
+  pool: 5
+  database: justificador6_development
+
+production:
+  <<: *default
+  host: 10.0.0.13
+  database: justificaciones
+  socket: /var/lib/mysql/mysql.sock
+  password: <%= ENV['JUSTIFICACIONES_DATABASE_PASSWORD']  %>
+
+production_netmultix:
+  adapter: mysql2
+  host: 10.0.0.13
+  encoding: utf8
+  pool: 5
+  username: netmultix
+  password: <%= ENV['PASSWD_NETMULTIX'] %>
+  socket: /tmp/mysql.sock
+  database: netmultix
+
+production_cimavnetmultix:
+  adapter: mysql2
+  host: 10.0.0.13
+  encoding: utf8
+  pool: 5
+  username: netmultix
+  password: <%= ENV['PASSWD_NETMULTIX'] %>
+  socket: /tmp/mysql.soc
+  database: cimavnetmultix
+

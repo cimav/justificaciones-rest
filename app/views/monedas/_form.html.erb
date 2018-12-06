@@ -1,0 +1,32 @@
+<%= form_with(model: moneda, local: true) do |form| %>
+  <% if moneda.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(moneda.errors.count, "error") %> prohibited this moneda from being saved:</h2>
+
+      <ul>
+      <% moneda.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :code %>
+    <%= form.text_field :code, id: :moneda_code %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nombre %>
+    <%= form.text_field :nombre, id: :moneda_nombre %>
+  </div>
+
+  <div class="field">
+    <%= form.label :simbolo %>
+    <%= form.text_field :simbolo, id: :moneda_simbolo %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

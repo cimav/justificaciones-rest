@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Monedas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Nombre</th>
+      <th>Simbolo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @monedas.each do |moneda| %>
+      <tr>
+        <td><%= moneda.code %></td>
+        <td><%= moneda.nombre %></td>
+        <td><%= moneda.simbolo %></td>
+        <td><%= link_to 'Show', moneda %></td>
+        <td><%= link_to 'Edit', edit_moneda_path(moneda) %></td>
+        <td><%= link_to 'Destroy', moneda, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Moneda', new_moneda_path %>

@@ -1,0 +1,22 @@
+<%= form_with(model: partida, local: true) do |form| %>
+  <% if partida.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(partida.errors.count, "error") %> prohibited this partida from being saved:</h2>
+
+      <ul>
+      <% partida.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nombre %>
+    <%= form.text_field :nombre, id: :partida_nombre %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
