@@ -52,8 +52,6 @@ node_modules/
 !/log/.keep
 !/tmp/.keep
 
-config/secrets.yml
-
 private/
 
 run-production.sh
