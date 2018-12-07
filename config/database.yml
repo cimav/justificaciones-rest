@@ -15,18 +15,24 @@ development:
 
 production:
   <<: *default
-  host: 10.0.0.13
+  # host: 10.0.0.13
+  host: fermi.cimav.edu.mx
   database: justificaciones
-  socket: /var/lib/mysql/mysql.sock
-  password: <%= ENV['JUSTIFICACIONES_DATABASE_PASSWORD']  %>
+  # socket: /var/lib/mysql/mysql.sock
+  socket: /tmp/mysql.sock
+  username: admin
+  password: <%= ENV['FERMI_DATABASE_PASSWORD']  %>
 
 production_netmultix:
   adapter: mysql2
-  host: 10.0.0.13
+  # host: 10.0.0.13
+  host: fermi.cimav.edu.mx
   encoding: utf8
   pool: 5
-  username: netmultix
-  password: <%= ENV['PASSWD_NETMULTIX'] %>
+  # username: netmultix
+  username: admin
+  # password: <%= ENV['PASSWD_NETMULTIX'] %>
+  password: <%= ENV['FERMI_DATABASE_PASSWORD'] %>
   socket: /tmp/mysql.sock
   database: netmultix
 
