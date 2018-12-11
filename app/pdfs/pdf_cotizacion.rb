@@ -117,10 +117,10 @@ tipo de procedimiento de contratación)"
     move_down 8
     indent(20) do
       txt =
-        "1.- Los datos de los bienes, arrendamientos o servicios a cotizar (mismos que se especifican en el anexo de la solicitud de cotización).
+        "1.- Los datos de los bienes, arrendamientos o servicios a cotizar los cuales se especifican en el anexo.
 
         2.- Condiciones de entrega:
-        En una sola exhibición de #{justificacion.num_dias_plazo} días naturales posteriores a la recepción de la orden de surtimiento."
+        En una sola exhibición de #{justificacion.num_dias_plazo} días naturales posteriores a la recepción de la orden de compra."
 
         text txt
     end
@@ -147,8 +147,7 @@ tipo de procedimiento de contratación)"
 
       5.- El porcentaje de garantía de cumplimiento será del #{justificacion.porcen_garantia}%.
 
-      6.- Penas convencionales por atraso en la entrega de bienes y/o servicios y Deducciones por incumplimiento parcial o deficiente serán del 1% diario.
-      El archivo adjunto de especificaciones técnicas se hace consistir en ___ fojas.
+      6.- Penas convencionales por atraso en la entrega de bienes y/o servicios y Deducciones por incumplimiento parcial o deficiente serán del 0.1% diario.
 
       7.- En su caso, los métodos de prueba que empleará el ente público para determinar el cumplimiento de las especificaciones solicitadas."
 
@@ -165,7 +164,7 @@ tipo de procedimiento de contratación)"
       txt ="
       8.- Origen de los bienes (nacional o país de importación) y nacionalidad de los posibles proveedores.
 
-      9.- En caso de bienes de importación la moneda en que cotiza ___________.
+      9.- En caso de bienes de importación la moneda en que cotiza.
 
       10.- En caso de que el proceso de fabricación de los bienes requeridos sea superior a 60 días, señale el tiempo que correspondería a su producción.
 
