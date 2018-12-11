@@ -303,7 +303,9 @@ que el procedimiento de contratación por adjudicación directa es el idóneo.".
     indent(30) do
       text 'V.2. FORMA DE PAGO PROPUESTA:', style: :bold
       move_down 20
-      parcialidad = justificacion.subtotal / justificacion.num_pagos rescue 0.00
+      parcialidad = subTotal / justificacion.num_pagos rescue 0.00
+      puts subTotal
+      puts parcialidad
       text "El monto total será pagado en <b>#{justificacion.num_pagos} pago/s de #{monto_to_currency(parcialidad)}</b>#{@mas_iva}. Los pagos se realizarán previa \f
 verificación de la entrega y calidad de los #{@justificacion.biensServicios} así como previo envío en formatos .pdf y .xml del Comprobante Fiscal Digital por Internet (CFDI) correspondiente que \f
 reúna los requisitos fiscales respectivos. Los pagos se efectuarán mediante TRANSFERENCIA".gsub(/\f\n/, ''),:align => :justify, :inline_format => true, :size => 12, :leading => 2, :character_spacing => 0.30

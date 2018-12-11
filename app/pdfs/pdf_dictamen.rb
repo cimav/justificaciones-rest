@@ -9,6 +9,7 @@ class PdfDictamen < Prawn::Document
     proveedor_seleccionado.domicilio = proveedor_seleccionado.domicilio.blank? ? '' : proveedor_seleccionado.domicilio
     proveedor_seleccionado.email = proveedor_seleccionado.email.blank? ? '' : proveedor_seleccionado.email
     proveedor_seleccionado.telefono = proveedor_seleccionado.telefono.blank? ? '' : proveedor_seleccionado.telefono
+    proveedor_seleccionado.telefono = proveedor_seleccionado.telefono.blank? ? '' : proveedor_seleccionado.telefono
 
     @justificacion = justificacion
 
@@ -223,7 +224,7 @@ de la Ley de Adquisiciones, Arrendamientos y Servicios del Sector Público."
     move_down 20
     text "V.2.   FORMA DE PAGO PROPUESTA:", style: :bold
     move_down 5
-    parcialidad = justificacion.subtotal / justificacion.num_pagos rescue 0.00
+    parcialidad = subTotal / justificacion.num_pagos rescue 0.00
     txt ="El monto total será pagado en #{justificacion.num_pagos} pago/s de #{monto_to_currency(parcialidad)}#{mas_iva}. \f
 Los pagos se realizarán previa verificación de la entrega y calidad de los #{@justificacion.biensServicios} así como previo envío en formatos .pdf y .xml del Comprobante \f
 Fiscal Digital por Internet (CFDI) correspondiente que reúna los requisitos fiscales respectivos. Los pagos se efectuarán mediante transferencia \f
