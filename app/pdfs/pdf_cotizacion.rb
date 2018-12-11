@@ -130,6 +130,7 @@ tipo de procedimiento de contratación)"
           o El lugar de entrega será: #{justificacion.lugar_entrega}"
       text txt
     end
+=begin
     stroke do
       stroke_color 'b3b3b3'
       horizontal_line 348, bounds.right, :at=>550
@@ -138,6 +139,7 @@ tipo de procedimiento de contratación)"
       stroke_color 'b3b3b3'
       horizontal_line 165, bounds.right, :at=>536
     end
+=end
 
     indent(20) do
       txt ="
