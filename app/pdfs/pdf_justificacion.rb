@@ -30,7 +30,7 @@ class PdfJustificacion < Prawn::Document
     end
 
     if(@justificacion.iva > 0.00 ) then
-      @mas_iva = " más IVA"
+      @mas_iva = " más IVA y retenciones a las que haya lugar"
     end
 
     @map = Hash['texto1_I' => "No existan bienes o servicios alternativos o sustitutos técnicamente razonables, o bien, que en el \f

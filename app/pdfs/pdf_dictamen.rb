@@ -17,7 +17,7 @@ class PdfDictamen < Prawn::Document
 
     mas_iva = ""
     if(justificacion.iva > 0.00 ) then
-      mas_iva = " más IVA"
+      mas_iva = " más IVA y retenciones a las que haya lugar"
     end
 
     diasCorresponde = 'corresponde a '+justificacion.num_dias_plazo.to_s+' días'
