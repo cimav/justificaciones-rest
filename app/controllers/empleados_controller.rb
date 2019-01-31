@@ -10,7 +10,7 @@ class EmpleadosController  < ApplicationController
 
   def cuenta
     # @empleado = Empleado.find_by_cuenta_cimav(params[:cuenta_cimav]) # where("cuenta_cimav like '%#{params[:cuenta_cimav]}%'").first
-    @empleado = Empleado.where("cuenta_cimav like '%#{params[:cuenta_cimav]}%'").first rescue '{}'
+    @empleado = Empleado.where("cuenta_cimav like '#{params[:cuenta_cimav]}'").first rescue '{}'
     render json: @empleado, status: :ok
   end
 
