@@ -46,7 +46,7 @@ class PdfDictamen < Prawn::Document
     text 'JUSTIFICACIÓN Y DICTAMEN DE USUARIO', style: :bold, align: :center
 
     move_down 30
-    text "C.P. JOSE MARIA ESTRADA GOMEZ \nENCARGADO DEL DESPACHO DEL DEPARTAMENTO DE ADQUISICIONES \nCIMAV, S.C.\n PRESENTE.",
+    text "C.P. JUSTO MARTINEZ CARRASCO \nENCARGADO DEL DESPACHO DEL DEPARTAMENTO DE ADQUISICIONES \nCIMAV, S.C.\n PRESENTE.",
          style: :bold
     move_down 20
     indent(336) do
