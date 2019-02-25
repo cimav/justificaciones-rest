@@ -133,7 +133,7 @@ de Adquisiciones, Arrendamientos y Servicios del Sector Público, publicado en e
     text "El/Los  #{@justificacion.biensServicios} que se pretende contratar, son los siguientes: ", size: 12, align: :justify, indent_paragraphs: 30
     move_down 20
 
-    descService = @justificacion.descripcion
+    descService = @justificacion.descripcion.force_encoding("Windows-1252")
     indent(30)do
       text descService, size: 12, align: :justify, leading: 2
     end

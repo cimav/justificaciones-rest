@@ -73,7 +73,7 @@ el ejercicio 2018, el cual forma parte de los bienes que se suministran al perso
     text txt, :align=>:justify, :inline_format => true
 
     move_down 10
-    text "#{justificacion.descripcion}", :align=>:justify, :inline_format => true
+    text "#{justificacion.descripcion.force_encoding("Windows-1252")}", :align=>:justify, :inline_format => true
 
     move_down 20
     txt ="II.- PLAZOS Y CONDICIONES DEL SUMINISTRO DEL SERVICIO"
