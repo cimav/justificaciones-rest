@@ -39,7 +39,15 @@ class PdfDictamen < Prawn::Document
         "#{@justificacion.biensServicios} son las siguientes:\n\n " + @justificacion.condiciones_pago
     ]
 
-    font 'Helvetica'
+    font_families.update("Arial" => {
+        :normal => "/Library/Fonts/Arial.ttf",
+        :italic => "/Library/Fonts/Arial Italic.ttf",
+        :bold => "/Library/Fonts/Arial Bold.ttf",
+        :bold_italic => "/Library/Fonts/Arial Bold Italic.ttf"
+    })
+    font "Arial"
+
+    # font 'Helvetica'
     font_size 11
 
     move_down 10
@@ -73,7 +81,7 @@ el ejercicio 2018, el cual forma parte de los bienes que se suministran al perso
     text txt, :align=>:justify, :inline_format => true
 
     move_down 10
-    text "#{justificacion.descripcion.force_encoding("Windows-1252")}", :align=>:justify, :inline_format => true
+    text "#{justificacion.descripcion}", :align=>:justify, :inline_format => true
 
     move_down 20
     txt ="II.- PLAZOS Y CONDICIONES DEL SUMINISTRO DEL SERVICIO"

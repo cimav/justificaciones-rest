@@ -1,3 +1,6 @@
+#!/bin/env ruby
+# encoding: utf-8
+
 class PdfJustificacion < Prawn::Document
 
   def initialize(justificacion)
@@ -78,10 +81,20 @@ de Adquisiciones, Arrendamientos y Servicios del Sector Público, publicado en e
                     'Aplicación General en Materia de Adquisiciones, Arrendamientos y Servicios del Sector Público, '+
                     'publicado en el Diario Oficial de la Federación el 21 de noviembre de 2012.']
 
-    font 'Times-Roman'
+    font_families.update("Arial" => {
+        :normal => "/Library/Fonts/Arial.ttf",
+        :italic => "/Library/Fonts/Arial Italic.ttf",
+        :bold => "/Library/Fonts/Arial Bold.ttf",
+        :bold_italic => "/Library/Fonts/Arial Bold Italic.ttf"
+    })
+    font "Arial"
+
+    #font "/Library/Fonts/Verdana.ttf" #Arial Unicode
+    # font "/Library/Fonts/Arial"
+    # font 'Times-Italic'
     #titulo del documento
     move_down 10
-    text 'Centro de Investigación en Materiales Avanzados S. C.', size: 17, style: :bold, align: :center
+    text "Centro de Investigación en Materiales Avanzados S. C.", size: 17, style: :bold, align: :center
 
     #Parrafo consiguiente al titulo
     move_down 20
@@ -133,7 +146,7 @@ de Adquisiciones, Arrendamientos y Servicios del Sector Público, publicado en e
     text "El/Los  #{@justificacion.biensServicios} que se pretende contratar, son los siguientes: ", size: 12, align: :justify, indent_paragraphs: 30
     move_down 20
 
-    descService = @justificacion.descripcion.force_encoding("Windows-1252")
+    descService = @justificacion.descripcion #.force_encoding("Windows-1252")
     indent(30)do
       text descService, size: 12, align: :justify, leading: 2
     end

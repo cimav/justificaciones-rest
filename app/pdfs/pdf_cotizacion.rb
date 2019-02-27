@@ -1,3 +1,6 @@
+#!/bin/env ruby
+# encoding: utf-8
+
 class PdfCotizacion < Prawn::Document
 
   def initialize(justificacion, provee_id)
@@ -7,12 +10,19 @@ class PdfCotizacion < Prawn::Document
 
     direccion_cimav = "Miguel de Cervantes 120, Complejo Industrial Chihuahua\nChihuahua, Chih. México. C.P. 31136"
 
-    font 'Helvetica'
+    font_families.update("Arial" => {
+        :normal => "/Library/Fonts/Arial.ttf",
+        :italic => "/Library/Fonts/Arial Italic.ttf",
+        :bold => "/Library/Fonts/Arial Bold.ttf",
+        :bold_italic => "/Library/Fonts/Arial Bold Italic.ttf"
+    })
+    font "Arial"
+
 
     image "public/logo-cimav.png", :at=>[bounds.left, bounds.top+2], :scale=>0.90
 
     move_down 10
-    font 'Times-Roman'
+
     text 'Centro de Investigación en Materiales Avanzados S. C.', size: 17, style: :bold, align: :center
 
     stroke do
@@ -92,12 +102,9 @@ tipo de procedimiento de contratación)"
 
     start_new_page
 
-    font 'Helvetica'
-
     image "public/logo-cimav.png", :at=>[bounds.left, bounds.top+2], :scale=>0.90
 
     move_down 10
-    font 'Times-Roman'
     text 'Centro de Investigación en Materiales Avanzados S. C.', size: 17, style: :bold, align: :center
 
     stroke do
@@ -197,12 +204,10 @@ tipo de procedimiento de contratación)"
 
     start_new_page
 
-    font 'Helvetica'
 
     image "public/logo-cimav.png", :at=>[bounds.left, bounds.top+2], :scale=>0.90
 
     move_down 10
-    font 'Times-Roman'
     text 'Centro de Investigación en Materiales Avanzados S. C.', size: 17, style: :bold, align: :center
 
     stroke do

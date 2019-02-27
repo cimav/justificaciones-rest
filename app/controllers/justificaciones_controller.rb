@@ -1,3 +1,6 @@
+#!/bin/env ruby
+# encoding: utf-8
+
 class JustificacionesController  < ApplicationController
   # before_action :set_justificacion, only: [:show, :edit, :update, :destroy]
 
@@ -27,6 +30,7 @@ class JustificacionesController  < ApplicationController
         @justificacion
       end
       format.pdf do
+
         filename = "#{@justificacion.autorizo.cuenta_cimav}_#{@justificacion.requisicion}.pdf"
         # if @justificacion.tipo.fraccion == 1 ||  @justificacion.tipo.fraccion == 7
         if @justificacion.tipo.fraccion == 7
@@ -40,6 +44,7 @@ class JustificacionesController  < ApplicationController
                   type: 'application/pdf',
                   disposition: "inline"
         File.delete("public/#{filename}");
+
       end
     end
   end
