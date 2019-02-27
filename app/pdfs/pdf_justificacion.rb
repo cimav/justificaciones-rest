@@ -82,10 +82,10 @@ de Adquisiciones, Arrendamientos y Servicios del Sector Público, publicado en e
                     'publicado en el Diario Oficial de la Federación el 21 de noviembre de 2012.']
 
     font_families.update("Arial" => {
-        :normal => "/Library/Fonts/Arial.ttf",
-        :italic => "/Library/Fonts/Arial Italic.ttf",
-        :bold => "/Library/Fonts/Arial Bold.ttf",
-        :bold_italic => "/Library/Fonts/Arial Bold Italic.ttf"
+        :normal => "public/assets/fonts/Arial.ttf",
+        :italic => "public/assets/fonts/Arial Italic.ttf",
+        :bold => "public/assets/fonts/Arial Bold.ttf",
+        :bold_italic => "public/assets/fonts/Arial Bold Italic.ttf"
     })
     font "Arial"
 

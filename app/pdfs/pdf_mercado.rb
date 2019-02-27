@@ -10,10 +10,10 @@ class PdfMercado < Prawn::Document
     direccion_cimav = "Miguel de Cervantes 120, Complejo Industrial Chihuahua\nChihuahua, Chih. México. C.P. 31136"
 
     font_families.update("Arial" => {
-        :normal => "/Library/Fonts/Arial.ttf",
-        :italic => "/Library/Fonts/Arial Italic.ttf",
-        :bold => "/Library/Fonts/Arial Bold.ttf",
-        :bold_italic => "/Library/Fonts/Arial Bold Italic.ttf"
+        :normal => "public/assets/fonts/Arial.ttf",
+        :italic => "public/assets/fonts/Arial Italic.ttf",
+        :bold => "public/assets/fonts/Arial Bold.ttf",
+        :bold_italic => "public/assets/fonts/Arial Bold Italic.ttf"
     })
     font "Arial"
 
