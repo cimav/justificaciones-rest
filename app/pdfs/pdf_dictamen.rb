@@ -51,7 +51,7 @@ class PdfDictamen < Prawn::Document
     font_size 11
 
     move_down 10
-    text 'JUSTIFICACIÓN Y DICTAMEN DE USUARIO', style: :bold, align: :center
+    text 'JUSTIFICACIÓN Y DICTAMEN DE USUARIO', style: :normal, align: :center
 
     move_down 30
     text "C.P. JUSTO MARTINEZ CARRASCO \nENCARGADO DEL DESPACHO DEL DEPARTAMENTO DE ADQUISICIONES \nCIMAV, S.C.\n PRESENTE.",

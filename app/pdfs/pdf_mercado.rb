@@ -20,7 +20,7 @@ class PdfMercado < Prawn::Document
     image "public/logo-cimav.png", :at=>[bounds.left, bounds.top+2], :scale=>0.90
 
     move_down 10
-    text 'Centro de Investigación en Materiales Avanzados S. C.', size: 17, style: :bold, align: :center
+    text 'Centro de Investigación en Materiales Avanzados S. C.', size: 16, style: :normal, align: :center
 
     stroke do
       move_down 8

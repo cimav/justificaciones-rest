@@ -94,7 +94,7 @@ de Adquisiciones, Arrendamientos y Servicios del Sector Público, publicado en e
     # font 'Times-Italic'
     #titulo del documento
     move_down 10
-    text "Centro de Investigación en Materiales Avanzados S. C.", size: 17, style: :bold, align: :center
+    text "Centro de Investigación en Materiales Avanzados S. C.", size: 17, style: :normal, align: :center
 
     #Parrafo consiguiente al titulo
     move_down 20
