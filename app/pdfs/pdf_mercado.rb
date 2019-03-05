@@ -29,7 +29,7 @@ class PdfMercado < Prawn::Document
     end
 
     draw_text 'FECHA ELABORACIÓN:', size: 11, style: :bold, :at=>[220, 660]
-    draw_text fecha(justificacion.fecha_elaboracion) , size: 12, style: :bold, :at=>[400, 660]
+    draw_text fecha(justificacion.fecha_mercado) , size: 12, style: :bold, :at=>[400, 660]
     stroke do
       move_down 8
       stroke_color 'b3b3b3'

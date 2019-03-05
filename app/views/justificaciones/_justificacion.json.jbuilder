@@ -7,7 +7,8 @@ json.extract! justificacion,
               :fecha_inicio, :fecha_termino, :fecha_elaboracion, :descripcion,
               :num_pagos, :porcen_anticipo, :autoriza_cargo, :forma_pago,
               :num_dias_plazo, :motivo_seleccion, :identificador, :partida_id,
-              :economica, :eficiencia_eficacia, :lugar_entrega, :porcen_garantia, :fecha_cotizar
+              :economica, :eficiencia_eficacia, :lugar_entrega, :porcen_garantia, :fecha_cotizar,
+              :fecha_mercado
 
 #
 json.url justificacion_url(justificacion, format: :json)
