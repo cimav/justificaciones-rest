@@ -31,13 +31,11 @@ class JustificacionesController  < ApplicationController
       end
       format.pdf do
 
-=begin
         filename = "#{@justificacion.autorizo.cuenta_cimav}_#{@justificacion.requisicion}.pdf"
         pdf = Prawn::Document.new
         pdf.text "Hello There"
         send_data pdf.render,  type: 'application/pdf', disposition: "inline"
-=end
-
+=begin
         filename = "#{@justificacion.autorizo.cuenta_cimav}_#{@justificacion.requisicion}.pdf"
         # if @justificacion.tipo.fraccion == 1 ||  @justificacion.tipo.fraccion == 7
         if @justificacion.tipo.fraccion == 7
@@ -51,7 +49,7 @@ class JustificacionesController  < ApplicationController
                   type: 'application/pdf',
                   disposition: "inline"
         File.delete("public/#{filename}")
-
+=end
       end
     end
   end
