@@ -31,10 +31,21 @@ class JustificacionesController  < ApplicationController
       end
       format.pdf do
 
+=begin
         filename = "#{@justificacion.autorizo.cuenta_cimav}_#{@justificacion.requisicion}.pdf"
         pdf = Prawn::Document.new
         pdf.text "Hello There"
         send_data pdf.render,  type: 'application/pdf', disposition: "inline"
+=end
+
+        if @justificacion.tipo.fraccion == 7
+          pdf = PdfDictamen.new(@justificacion)
+        else
+          pdf = PdfJustificacion.new(@justificacion)
+        end
+        filename = "#{@justificacion.autorizo.cuenta_cimav}_#{@justificacion.requisicion}.pdf"
+        send_data pdf.render, filename: filename,type: 'application/pdf', disposition: "inline"
+
 =begin
         filename = "#{@justificacion.autorizo.cuenta_cimav}_#{@justificacion.requisicion}.pdf"
         # if @justificacion.tipo.fraccion == 1 ||  @justificacion.tipo.fraccion == 7
