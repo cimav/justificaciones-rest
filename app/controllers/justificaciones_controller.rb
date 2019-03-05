@@ -139,12 +139,9 @@ class JustificacionesController  < ApplicationController
       format.pdf do
         filename = "Cotizacion_#{@justificacion.requisicion}.pdf"
         pdf = PdfCotizacion.new(@justificacion, params[:num_provee])
-        pdf.render_file  "public/#{filename}"
-        send_data pdf.render,
-                  filename: filename,
-                  type: 'application/pdf',
-                  disposition: "inline"
-        File.delete("public/#{filename}");
+        # pdf.render_file  "public/#{filename}"
+        send_data pdf.render, filename: filename, type: 'application/pdf', disposition: "inline"
+        # File.delete("public/#{filename}");
       end
     end
   end
@@ -155,12 +152,9 @@ class JustificacionesController  < ApplicationController
       format.pdf do
         filename = "Mercado_#{@justificacion.requisicion}.pdf"
         pdf = PdfMercado.new(@justificacion)
-        pdf.render_file  "public/#{filename}"
-        send_data pdf.render,
-                  filename: filename,
-                  type: 'application/pdf',
-                  disposition: "inline"
-        File.delete("public/#{filename}");
+        # pdf.render_file  "public/#{filename}"
+        send_data pdf.render, filename: filename, type: 'application/pdf', disposition: "inline"
+        # File.delete("public/#{filename}");
       end
     end
   end
