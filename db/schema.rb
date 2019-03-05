@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 20190305162448) do
     t.date "fecha_cotizar"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.date "fecha_estudio"
+    t.date "fecha_mercado"
     t.index ["moneda_id"], name: "index_justificaciones_on_moneda_id"
     t.index ["partida_id"], name: "index_justificaciones_on_partida_id"
     t.index ["tipo_id"], name: "index_justificaciones_on_tipo_id"
