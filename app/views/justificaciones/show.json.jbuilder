@@ -8,6 +8,7 @@ json.tipo do
     json.fraccion @justificacion.tipo.fraccion
     json.romano @justificacion.tipo.romano
     json.texto @justificacion.tipo.texto
+    json.descripcion @justificacion.tipo.descripcion
   end
 end
 json.moneda do

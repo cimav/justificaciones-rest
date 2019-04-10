@@ -5,4 +5,7 @@ class Empleado < ActiveRecord::Base
 
   self.abstract_class = true
 
+  attr_accessor :is_asistente
+  attr_accessor :is_admin
+
 end

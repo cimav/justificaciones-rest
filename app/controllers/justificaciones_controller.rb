@@ -176,7 +176,7 @@ class JustificacionesController  < ApplicationController
         :num_pagos, :porcen_anticipo, :autoriza_cargo, :forma_pago,
         :num_dias_plazo, :motivo_seleccion, :identificador, :partida_id,
         :economica, :eficiencia_eficacia, :lugar_entrega, :porcen_garantia, :fecha_cotizar,
-        :fecha_mercado
+        :fecha_mercado, :created_at, :status
       )
   end
 

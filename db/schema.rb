@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190305162448) do
+ActiveRecord::Schema.define(version: 20190329224916) do
 
   create_table "asistentes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer "asistente_id"
@@ -24,12 +24,12 @@ ActiveRecord::Schema.define(version: 20190305162448) do
     t.bigint "tipo_id"
     t.bigint "partida_id"
     t.integer "proveedor_id"
-    t.string "identificador"
-    t.string "requisicion"
+    t.string "identificador", null: false, collation: "utf8_general_ci"
+    t.string "requisicion", null: false, collation: "utf8_general_ci"
     t.string "proyecto"
     t.integer "bien_servicio"
     t.decimal "iva", precision: 10, scale: 2
-    t.text "condiciones_pago"
+    t.text "condiciones_pago", null: false, collation: "utf8_general_ci"
     t.text "razon_compra"
     t.string "terminos_entrega"
     t.integer "plazo"
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20190305162448) do
     t.string "autoriza_cargo"
     t.string "forma_pago"
     t.integer "num_dias_plazo"
-    t.text "motivo_seleccion"
+    t.text "motivo_seleccion", null: false, collation: "utf8_general_ci"
     t.boolean "economica", default: true
     t.integer "eficiencia_eficacia", default: 0
     t.string "lugar_entrega"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20190305162448) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.date "fecha_mercado"
+    t.integer "status", default: 0
     t.index ["moneda_id"], name: "index_justificaciones_on_moneda_id"
     t.index ["partida_id"], name: "index_justificaciones_on_partida_id"
     t.index ["tipo_id"], name: "index_justificaciones_on_tipo_id"
@@ -94,6 +95,7 @@ ActiveRecord::Schema.define(version: 20190305162448) do
     t.integer "fraccion"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "descripcion"
   end
 
   add_foreign_key "justificaciones", "monedas"
