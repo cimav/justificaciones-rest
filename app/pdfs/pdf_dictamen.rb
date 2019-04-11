@@ -71,12 +71,21 @@ class PdfDictamen < Prawn::Document
     txt ="I.- DESCRIPCION DE LOS #{@justificacion.biensServicios.upcase}: #{justificacion.partida.texto.upcase}"
     text txt, :align=>:center, style: :bold
 
+=begin
     move_down 20
     txt = "El suministro de bienes consumibles que se pretende contratar es el correspondiente a la adquisición de Herramientas \f
 Menores para trabajos en  el mantenimiento del equipo y edificio del Centro de Investigación en Materiales Avanzados, \f
 S.C. en adelante el <b>CIMAV</b>, conforme a la suficiencia presupuestal autorizada en las partidas \f
 número <b>#{justificacion.partida.texto.upcase}</b> del presupuesto anual autorizado al <b>CIMAV</b>  para \f
 el ejercicio 2018, el cual forma parte de los bienes que se suministran al personal para el desempeño de sus actividades."
+    txt = txt.gsub(/\f\n/, '')
+    text txt, :align=>:justify, :inline_format => true
+=end
+
+    move_down 20
+    txt = "Esta contratación se solicita conforme a la suficiencia presupuestal autorizada en las partidas \f
+número <b>#{justificacion.partida.texto.upcase}</b> del presupuesto anual autorizado al <b>CIMAV</b>  para \f
+el ejercicio en curso, la cual consiste en lo siguiente:"
     txt = txt.gsub(/\f\n/, '')
     text txt, :align=>:justify, :inline_format => true
 
