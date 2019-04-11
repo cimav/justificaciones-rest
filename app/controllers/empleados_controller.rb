@@ -21,7 +21,7 @@ class EmpleadosController  < ApplicationController
       @empleado.is_admin = asistentes.any? {|h| h['creador_id'] == 999}
       # Asistente.where("asistente_id = #{@empleado.id} AND creador_id = 999").length > 0
     end
-    render json: @empleado, status: :ok
+    # render json: @empleado, status: :ok Sin Render pq omite los attr_accessor
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
