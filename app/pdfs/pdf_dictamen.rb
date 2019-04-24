@@ -25,18 +25,20 @@ class PdfDictamen < Prawn::Document
       diasCorresponde = 'corresponde a un día'
     end
 
+    entrega = "#{@justificacion.terminos_entrega} \n\n #{@justificacion.lugar_entrega}"
+
     @map = Hash[
         'plazo_0' => "El plazo en que se requiere el suministro de los #{@justificacion.biensServicios}, corresponde al periodo del "+
         fecha(justificacion.fecha_inicio) + ' y hasta el '+ fecha(justificacion.fecha_termino)+
-        ". Las condiciones en las que se entregarán los  #{@justificacion.biensServicios} son las siguientes:\n\n"+ @justificacion.condiciones_pago,
+        ". Las condiciones en las que se entregarán los  #{@justificacion.biensServicios} son las siguientes:\n\n"+ entrega,
 
         'plazo_1' => "La fecha en que se requiere el suministro de los  #{@justificacion.biensServicios}, corresponde al día "+
             fecha(justificacion.fecha_termino)+ '. Las condiciones en las que se '+
-        "entregarán los  #{@justificacion.biensServicios} son las siguientes:\n\n "+@justificacion.condiciones_pago,
+        "entregarán los  #{@justificacion.biensServicios} son las siguientes:\n\n "+ entrega,
 
         'plazo_2' => "El plazo en que se requiere el suministro de los  #{@justificacion.biensServicios}, " + diasCorresponde+
         ' después de la elaboración de este documento.'+' Las condiciones en las que se entregarán los '+
-        "#{@justificacion.biensServicios} son las siguientes:\n\n " + @justificacion.condiciones_pago
+        "#{@justificacion.biensServicios} son las siguientes:\n\n " + entrega
     ]
 
     font_families.update("Arial" => {
@@ -245,7 +247,7 @@ de la Ley de Adquisiciones, Arrendamientos y Servicios del Sector Público."
     txt ="El monto total será pagado en #{justificacion.num_pagos} pago/s de #{monto_to_currency(parcialidad)}#{mas_iva}. \f
 Los pagos se realizarán previa verificación de la entrega y calidad de los #{@justificacion.biensServicios} así como previo envío en formatos .pdf y .xml del Comprobante \f
 Fiscal Digital por Internet (CFDI) correspondiente que reúna los requisitos fiscales respectivos. Los pagos se efectuarán mediante transferencia \f
-interbancaria."
+interbancaria y bajo las siguientes condiciones: \n\n #{justificacion.condiciones_pago}."
     txt = txt.gsub(/\f\n/, '')
     text txt, :align=>:justify, :inline_format => true
 

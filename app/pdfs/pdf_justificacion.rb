@@ -36,6 +36,12 @@ class PdfJustificacion < Prawn::Document
       @mas_iva = " más IVA y retenciones a las que haya lugar"
     end
 
+    #entrega = table([ ["•","#{@justificacion.terminos_entrega}"],
+    #                  ["•", " #{@justificacion.lugar_entrega}"]])
+    #
+
+    entrega = "#{@justificacion.terminos_entrega} \n\n #{@justificacion.lugar_entrega}"
+
     @map = Hash['texto1_I' => "No existan bienes o servicios alternativos o sustitutos técnicamente razonables, o bien, que en el \f
 mercado sólo existe un posible oferente, o se trate de una persona que posee la titularidad o el licenciamiento exclusivo de patentes, \f
 derechos de autor, u otros derechos exclusivos, o por tratarse de obras de arte.",
@@ -53,13 +59,13 @@ utilizadas en actividades experimentales requeridas en proyectos de investigaci�
 encuentren autorizados por quien determine el titular de la dependencia o el órgano de gobierno de la entidad.",
 
                 'plazo_0' => "El plazo en que se requiere el suministro de los #{@justificacion.biensServicios}, corresponde al periodo del \f
-<b>#{fecha(justificacion.fecha_inicio)}</b> y hasta el <b>#{fecha(justificacion.fecha_termino)}</b>. Las condiciones en las que se entregarán los #{@justificacion.biensServicios} son las siguientes:\n\n #{@justificacion.condiciones_pago}",
+<b>#{fecha(justificacion.fecha_inicio)}</b> y hasta el <b>#{fecha(justificacion.fecha_termino)}</b>. Las condiciones en las que se entregarán los #{@justificacion.biensServicios} son las siguientes:\n\n #{entrega}",
 
                 'plazo_1' => "La fecha en que se requiere el suministro de los #{@justificacion.biensServicios}, corresponde al día \f
-<b>#{fecha(justificacion.fecha_termino)}</b>. Las condiciones en las que se entregarán los #{@justificacion.biensServicios} son las siguientes:\n\n #{@justificacion.condiciones_pago}",
+<b>#{fecha(justificacion.fecha_termino)}</b>. Las condiciones en las que se entregarán los #{@justificacion.biensServicios} son las siguientes:\n\n #{entrega}",
 
                 'plazo_2' => "El plazo en que se requiere el suministro de los #{@justificacion.biensServicios}, #{@diasCorresponde} según la cotización del proveedor elegido. \f
-Las condiciones en las que se entregarán los #{@justificacion.biensServicios} son las siguientes:\n\n #{@justificacion.condiciones_pago}",
+Las condiciones en las que se entregarán los #{@justificacion.biensServicios} son las siguientes:\n\n #{entrega}",
 
                 'nota_1' => "Asimismo se hace constar mediante el sello y firma del responsable del área de Almacén, la No Existencia de Bienes o Nivel de Inventario \f
 que demuestra que se cumplió con lo establecido en el artículo 27 del RLAASP.",
@@ -321,7 +327,7 @@ que el procedimiento de contratación por adjudicación directa es el idóneo.".
 
       text "El monto total será pagado en <b>#{justificacion.num_pagos} pago/s de #{monto_to_currency(parcialidad)}</b>#{@mas_iva}. Los pagos se realizarán previa \f
 verificación de la entrega y calidad de los #{@justificacion.biensServicios} así como previo envío en formatos .pdf y .xml del Comprobante Fiscal Digital por Internet (CFDI) correspondiente que \f
-reúna los requisitos fiscales respectivos. Los pagos se efectuarán mediante TRANSFERENCIA".gsub(/\f\n/, ''),:align => :justify, :inline_format => true, :size => 12, :leading => 2, :character_spacing => 0.30
+reúna los requisitos fiscales respectivos. Los pagos se efectuarán mediante TRANSFERENCIA y bajo las siguientes condiciones: \n\n #{justificacion.condiciones_pago}".gsub(/\f\n/, ''),:align => :justify, :inline_format => true, :size => 12, :leading => 2, :character_spacing => 0.30
     end
     move_down 20
     text 'IV.-PERSONA PROPUESTA PARA LA ADJUDICACIÓN DIRECTA: ', style: :bold, align: :center, size: 12
