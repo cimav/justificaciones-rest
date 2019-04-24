@@ -281,7 +281,7 @@ Lo anterior de acuerdo con lo establecido en el numeral 4.2.4 (Adjudicación Dir
       txt = txt.gsub(/\f\n/, '')
       text txt, :align=>:justify, :inline_format => true
     end
-    if justificacion.eficiencia_eficacia == 0
+    if justificacion.eficiencia_eficacia == 1
       txt = "
 <b>Eficacia</b>
 

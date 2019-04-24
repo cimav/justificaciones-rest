@@ -366,7 +366,7 @@ reúna los requisitos fiscales respectivos. Los pagos se efectuarán mediante TR
                  'Servicios del Sector Público, publicado en el Diario Oficial de la Federación el 21 de noviembre '+
                  'de 2012.',:align => :justify, :inline_format => true, :size => 12, :leading => 2, :character_spacing => 0.30
       end
-      if justificacion.eficiencia_eficacia == 0
+      if justificacion.eficiencia_eficacia == 1
         move_down 20
         text ' - Eficacia', style: :bold , size:12
         text 'Con el procedimiento de contratación por adjudicación directa, se logrará obtener con '+
