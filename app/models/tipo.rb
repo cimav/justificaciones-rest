@@ -5,6 +5,8 @@ class Tipo < ApplicationRecord
 
   def romano
     case fraccion
+      when 0
+        "--"
       when 1
         "I"
       when 3
