@@ -13,7 +13,8 @@ class PdfDictamen < Prawn::Document
 
     @justificacion = justificacion
 
-    es_unico = justificacion.proveedores.length == 1
+    # es_unico = justificacion.proveedores.length == 1
+    es_unico = justificacion.tipo.fraccion == 1
 
     mas_iva = ""
     if(justificacion.iva > 0.00 ) then
@@ -252,7 +253,7 @@ interbancaria y bajo las siguientes condiciones: \n\n #{justificacion.condicione
     text txt, :align=>:justify, :inline_format => true
 
     move_down 20
-    text "VI.- PERSONA PROPUESTA PARA LA ADJUDICACION DIRECTA", :align=>:center, style: :bold
+    text "VI.- PROVEEDOR PROPUESTO PARA LA ADJUDICACION DIRECTA", :align=>:center, style: :bold
     move_down 20
     txt ="Por lo anteriormente expuesto y fundado, se propone a #{proveedor_seleccionado.razon_social} con domicilio en #{proveedor_seleccionado.domicilio} \f
 , Registro Federal de Contribuyentes <i>#{proveedor_seleccionado.rfc}</i> bajo el Régimen General de Ley Personas Morales."

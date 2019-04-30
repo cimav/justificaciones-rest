@@ -22,7 +22,8 @@ class PdfJustificacion < Prawn::Document
     proveedor_seleccionado.telefono = proveedor_seleccionado.telefono.blank? ? '' : proveedor_seleccionado.telefono
 
     # si es Unico, la fraccion sera 1 siempre
-    es_unico = justificacion.proveedores.length == 1
+    # es_unico = justificacion.proveedores.length == 1
+    es_unico = justificacion.tipo.fraccion == 1
     romano = es_unico ? 'I' : justificacion.tipo.romano
 
     # Operaciones Internas para el manejo de variables
@@ -330,7 +331,7 @@ verificación de la entrega y calidad de los #{@justificacion.biensServicios} as
 reúna los requisitos fiscales respectivos. Los pagos se efectuarán mediante TRANSFERENCIA y bajo las siguientes condiciones: \n\n #{justificacion.condiciones_pago}".gsub(/\f\n/, ''),:align => :justify, :inline_format => true, :size => 12, :leading => 2, :character_spacing => 0.30
     end
     move_down 20
-    text 'IV.-PERSONA PROPUESTA PARA LA ADJUDICACIÓN DIRECTA: ', style: :bold, align: :center, size: 12
+    text 'IV.-PROVEEDOR PROPUESTO PARA LA ADJUDICACIÓN DIRECTA: ', style: :bold, align: :center, size: 12
     move_down 20
     indent(30) do
       text 'Por lo anteriormente expuesto y fundado, se propone a ' + proveedor_seleccionado.razon_social.upcase+ ', con domicilio '+
