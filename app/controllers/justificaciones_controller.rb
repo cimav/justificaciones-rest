@@ -79,6 +79,11 @@ class JustificacionesController  < ApplicationController
   # POST /justificaciones.json
   def create
     @justificacion = Justificacion.new(justificacion_params)
+
+    @justificacion.fecha_cotizar = 7.days.from_now
+    @justificacion.fecha_mercado = 10.days.from_now
+    @justificacion.fecha_elaboracion = 13.days.from_now
+
     if @justificacion.save!
       render json: @justificacion, status: :created
     else
