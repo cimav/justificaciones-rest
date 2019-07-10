@@ -110,8 +110,12 @@ class JustificacionesController  < ApplicationController
       replica = origen.attributes
       replica['id'] = nil
       replica['identificador'] = identificador
+      replica['created_at'] = DateTime.now
       replica['proveedor_id'] = nil
-          replica = Justificacion.new(replica)
+      replica['fecha_cotizar'] = 7.days.from_now
+      replica['fecha_mercado'] = 10.days.from_now
+      replica['fecha_elaboracion'] = 13.days.from_now
+      replica = Justificacion.new(replica)
       if replica.save!
         origen.proveedores.each do |prov_origen|
           prov_replica = prov_origen.attributes
@@ -181,7 +185,9 @@ class JustificacionesController  < ApplicationController
         :num_pagos, :porcen_anticipo, :autoriza_cargo, :forma_pago,
         :num_dias_plazo, :motivo_seleccion, :identificador, :partida_id,
         :economica, :eficiencia_eficacia, :lugar_entrega, :porcen_garantia, :fecha_cotizar,
-        :fecha_mercado, :created_at, :status
+        :fecha_mercado, :created_at, :status,
+        :economica_txt, :eficiente, :eficiente_txt, :eficaz, :eficaz_txt
+
       )
   end
 

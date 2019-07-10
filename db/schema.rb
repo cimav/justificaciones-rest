@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190329224916) do
+ActiveRecord::Schema.define(version: 20190709213637) do
 
   create_table "asistentes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer "asistente_id"
@@ -53,6 +53,11 @@ ActiveRecord::Schema.define(version: 20190329224916) do
     t.datetime "updated_at", null: false
     t.date "fecha_mercado"
     t.integer "status", default: 0
+    t.text "economica_txt"
+    t.boolean "eficiente", default: false
+    t.text "eficiente_txt"
+    t.boolean "eficaz", default: false
+    t.text "eficaz_txt"
     t.index ["moneda_id"], name: "index_justificaciones_on_moneda_id"
     t.index ["partida_id"], name: "index_justificaciones_on_partida_id"
     t.index ["tipo_id"], name: "index_justificaciones_on_tipo_id"
