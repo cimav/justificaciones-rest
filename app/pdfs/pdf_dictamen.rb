@@ -277,31 +277,25 @@ El acreditamiento del o los criterios en los que se funda y motiva la excepción
       txt = "
 <b>Economía</b>
 
-Con la investigación de mercado se establecieron precios y demás condiciones de calidad, financiamiento y oportunidad respecto de los #{@justificacion.biensServicios} requeridos, con lo cual se asegura cumplir con los principios del artículo 134 de la Constitución Política de los Estados Unidos Mexicanos y de la Ley de Adquisiciones, Arrendamientos y Servicios del Sector Publico, en cuanto a precio, calidad, financiamiento, oportunidad y demás circunstancias pertinentes, por lo que el procedimiento de adjudicación directa permite en contraposición al procedimiento de licitación pública obtener con mayor oportunidad los #{@justificacion.biensServicios} requeridos, generando ahorro de recursos por estar proponiendo la adjudicación del proveedor que mostro más solvencia técnica y económica en cuanto al tipo de servicio contratado.
-
-Lo anterior de acuerdo con lo establecido en el numeral 4.2.4 (Adjudicación Directa) y numeral 4.2.4.1.1 del Acuerdo por el que se modifica el Manual Administrativo de Aplicación General en Materia de Adquisiciones, Arrendamientos y Servicios del Sector Publico, publicado en el Diario Oficial de la Federación el día 03 de febrero de 2016.
+#{@justificacion.economica_txt}
 "
       txt = txt.gsub(/\f\n/, '')
       text txt, :align=>:justify, :inline_format => true
     end
-    if justificacion.eficiencia_eficacia == 1
+    if justificacion.eficaz
       txt = "
 <b>Eficacia</b>
 
-Con el procedimiento de contratación por adjudicación directa, se lograra obtener con oportunidad los #{@justificacion.biensServicios}, atendiendo a las características requeridas en contraposición con el procedimiento de licitación pública, dado que se reducen tiempos y se atiende en el tiempo requerido la eventualidad para la adquisición de los #{@justificacion.biensServicios} a contratar, así como la generación de  economías, aunado a que la persona propuesta cuenta con experiencia y capacidad para satisfacer las necesidades requeridas, además de que se ofreció las mejores condiciones disponibles en cuanto a precio, calidad y oportunidad, con lo que se lograría el cumplimiento de los objetivos y resultados deseados en el tiempo requerido, por otra parte el proveedor propuesto ya ha realizado este tipo de servicios con anterioridad.
-
-Lo anterior de acuerdo con lo establecido en el numeral 4.2.4 (Adjudicación Directa) y numeral 4.2.4.1.1 del Acuerdo por el que se modifica el Manual Administrativo de Aplicación General en Materia de Adquisiciones, Arrendamientos y Servicios del Sector Publico, publicado en el Diario Oficial de la Federación el día 03 de febrero de 2016.
+#{@justificacion.eficaz_txt}
 "
       txt = txt.gsub(/\f\n/, '')
       text txt, :align=>:justify, :inline_format => true
-    else
+    end
+    if justificacion.eficiente
       txt = "
 <b>Eficiencia</b>
 
-Con el procedimiento d adjudicación directa, a diferencia del procedimiento de licitación pública, se logra el uso racional de recursos con los que cuenta la entidad para realizar la contratación, obteniendo las mejores condiciones de precio, calidad y oportunidad, evitando la pérdida de tiempo  y recursos al Estado, tal y como lo menciona el artículo 41 fracción #{justificacion.tipo.romano}, se puede realizar de manera eficaz la contratación del servicio requerido para cumplir con la eventualidad y que los servicios a contratar no se vean suspendidos.
-
-Lo anterior de acuerdo con lo establecido en el numeral 4.2.4 (Adjudicación Directa) y numeral 4.2.4.1.1 del Acuerdo por el que se modifica el Manual Administrativo de Aplicación General en Materia de Adquisiciones, Arrendamientos y Servicios del Sector Publico, publicado en el Diario Oficial de la Federación el día 03 de febrero de 2016.
-
+#{@justificacion.eficiente_txt}
 
 <b>Imparcialidad</b>
 

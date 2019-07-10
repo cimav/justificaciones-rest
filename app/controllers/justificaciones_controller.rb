@@ -84,6 +84,44 @@ class JustificacionesController  < ApplicationController
     @justificacion.fecha_mercado = 10.days.from_now
     @justificacion.fecha_elaboracion = 13.days.from_now
 
+    @justificacion.economica_txt = 'Con la Investigación de Mercado se establecieron precios y demás condiciones de calidad, '+
+        "financiamiento y oportunidad, respecto de los bienes o servicios requeridos, con lo cual "+
+        'se asegura cumplir con los principios del artículo 134 de la Constitución Política de los Estados '+
+        'Unidos Mexicanos y de la Ley de Adquisiciones, Arrendamientos y Servicios del Sector Público, '+
+        'en cuanto a precio, calidad, financiamiento, oportunidad y demás circunstancias pertinentes, por '+
+        'lo que el procedimiento de adjudicación directa permite en contraposición al procedimiento de '+
+        "licitación pública, obtener con mayor oportunidad los bienes o servicios requeridos al "+
+        'menor costo económico para el CIMAV, S.C. según lo detallado en la investigación de mercado '+
+        'que se realizó, generando ahorro de recursos por estar proponiendo la adjudicación al '+
+        'proveedor único cuya propuesta se considera aceptable en cuanto a su solvencia. '+
+        'Lo anterior de acuerdo con lo establecido en el numeral 4.2.4 (ADJUDICACIÓN DIRECTA) y '+
+        'numeral 4.2.4.1.1 (Verificar Acreditamiento de Excepción) del Acuerdo por el que se modifica el '+
+        'Manual Administrativo de Aplicación General en Materia de Adquisiciones, Arrendamientos y '+
+        'Servicios del Sector Público, publicado en el Diario Oficial de la Federación el 21 de noviembre '+
+        'de 2012.'
+    @justificacion.eficaz_txt = 'Con el procedimiento de contratación por adjudicación directa, se logrará obtener con '+
+        "oportunidad los bienes o servicios atendiendo a las características requeridas en "+
+        'contraposición con el procedimiento de licitación pública, dado que se reducen tiempos y se '+
+        'generan economías; aunado a que la persona propuesta cuenta con experiencia y capacidad '+
+        'para satisfacer las necesidades requeridas, además de que es el único que ofrece las mejores '+
+        'condiciones disponibles en cuanto a precio, calidad y oportunidad, con lo que se lograría el '+
+        'cumplimiento de los objetivos y resultados deseados en el tiempo requerido, situación que se '+
+        'puede demostrar en base a la investigación de mercado. Lo anterior de acuerdo con lo establecido '+
+        'en el numeral 4.2.4 (ADJUDICACIÓN DIRECTA) y numeral 4.2.4.1.1 (Verificar Acreditamiento de '+
+        'Excepción) del Acuerdo por el que se modifica el Manual Administrativo de Aplicación General '+
+        'en Materia de Adquisiciones, Arrendamientos y Servicios del Sector Público, publicado en el '+
+        'Diario Oficial de la Federación el 21 de noviembre de 2012.'
+    @justificacion.eficiente_txt = 'Con el procedimiento de adjudicación directa, a diferencia del procedimiento de licitación '+
+        'pública, se logra el uso racional de recursos con los que cuenta la Entidad para realizar la '+
+        'contratación, obteniendo las mejores condiciones de precio, calidad y oportunidad, evitando la '+
+        'pérdida de tiempo y recursos al Estado, lo cual se demuestra con la investigación de mercado que'+
+        'se realizó, quedando evidencia de su resultado ya que los recursos disponibles con los que cuenta '+
+        'el CIMAV se aplican conforme a los lineamientos de racionalidad y austeridad presupuestaria. Lo '+
+        'anterior de acuerdo con lo establecido en el numeral 4.2.4 (ADJUDICACIÓN DIRECTA) y numeral '+
+        '4.2.4.1.1 (Verificar Acreditamiento de Excepción) del Acuerdo por el que se modifica el Manual '+
+        ' Administrativo de Aplicación General en Materia de Adquisiciones, Arrendamientos y Servicios del '+
+        ' Sector Público, publicado en el Diario Oficial de la Federación el 21 de noviembre de 2012.'
+
     if @justificacion.save!
       render json: @justificacion, status: :created
     else
