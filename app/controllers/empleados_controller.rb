@@ -14,6 +14,9 @@ class EmpleadosController  < ApplicationController
     if cuenta_cimav == 'ion'
       cuenta_cimav = 'jonathan.hernandez'
     end
+    if cuenta_cimav == 'repositorio'
+      cuenta_cimav = 'marcos.lopez'
+    end
     @empleado = Empleado.where("cuenta_cimav like '#{cuenta_cimav}'").first rescue '{}'
     if @empleado
       asistentes =  Asistente.where("asistente_id = #{@empleado.id}")
