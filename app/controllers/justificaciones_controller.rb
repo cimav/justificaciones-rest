@@ -38,7 +38,7 @@ class JustificacionesController  < ApplicationController
         send_data pdf.render,  type: 'application/pdf', disposition: "inline"
 =end
 
-        if @justificacion.tipo.fraccion == 7
+        if @justificacion.tipo.fraccion == 7 || @justificacion.tipo.fraccion == 5
           pdf = PdfDictamen.new(@justificacion)
         else
           pdf = PdfJustificacion.new(@justificacion)

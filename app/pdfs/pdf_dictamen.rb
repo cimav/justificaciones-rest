@@ -177,6 +177,12 @@ disponible en el Sistema informático denominado COMPRANET:"
     move_down 20
     text "IV.- PROCEDIMIENTO DE CONTRATACION PROPUESTO", :align=>:center, style: :bold
     move_down 20
+    if justificacion.tipo.fraccion == 5
+    txt ="El procedimiento de contratación propuesto es el de adjudicación directa bajo el supuesto de excepción a la licitación pública \f
+establecido en la fracción #{justificacion.tipo.romano} del artículo 41 de la Ley de Adquisiciones, Arrendamientos y Servicios del Sector \f
+Publico el cual señala que cuando <b>“Derivado de caso fortuito o fuerza mayor, no sea posible obtener bienes o servicios mediante el procedimiento de licitación pública en el tiempo requerido para atender la eventualidad de que se trate, en este supuesto las cantidades o conceptos deberán limitarse a lo estrictamente necesario para afrontarla“</b>; así como a lo establecido en el artículo 72 fracción #{justificacion.tipo.romano} del Reglamento de la Ley de Adquisiciones, \f
+Arrendamientos y Servicios del Sector Publico el cual establece que <b>“La excepción a la licitación pública prevista en la fracción V, será procedente cuando exista un nexo causal directo entre el caso fortuito o la fuerza mayor y la imposibilidad o impedimento de la dependencia o entidad para obtener, en el tiempo requerido, los bienes o servicios que necesita mediante el procedimiento de licitación pública“</b>."
+    else
     txt ="El procedimiento de contratación propuesto es el de adjudicación directa bajo el supuesto de excepción a la licitación pública \f
 establecido en la fracción #{justificacion.tipo.romano} del artículo 41 de la Ley de Adquisiciones, Arrendamientos y Servicios del Sector \f
 Publico el cual señala que cuando <b>“Se haya declarado desierta una licitación pública, siempre que se mantengan los requisitos establecidos \f
@@ -187,6 +193,7 @@ sólo resultará procedente cuando se mantengan los mismos requisitos cuyo incum
 convocatoria a la licitación pública declarada desierta, incluidas las modificaciones derivadas de las juntas de aclaraciones correspondientes; \f
 dentro de dichos requisitos, se considerará la cantidad de bienes o servicios indicada en la convocatoria a la primera licitación pública. \f
 Lo anterior será aplicable para el caso de las partidas que se hayan declarado desiertas en una licitación pública“</b>."
+    end
     txt = txt.gsub(/\f\n/, '')
     text txt, :align=>:justify, :inline_format => true
 
