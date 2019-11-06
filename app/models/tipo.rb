@@ -15,6 +15,8 @@ class Tipo < ApplicationRecord
         "V"
       when 7
         "VII"
+      when 8
+        "VIII"
       when 14
         "XIV"
       when 15
