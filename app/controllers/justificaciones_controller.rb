@@ -15,9 +15,9 @@ class JustificacionesController  < ApplicationController
     ids = Asistente.where("asistente_id = #{params[:id]}").collect(&:creador_id).concat(Array(params[:id])).join(',')
     # @justificaciones = Justificacion.where("creador_id = #{params[:id]}")
     if ids.include? "999"
-      @justificaciones = Justificacion.includes(:creador).where(created_at: 1.year.ago..Time.now)
+      @justificaciones = Justificacion.includes(:creador).select("id, identificador, requisicion, creador_id, created_at, descripcion").where(created_at: 1.year.ago..Time.now)
     else
-      @justificaciones = Justificacion.includes(:creador).where("creador_id in (#{ids})").where(created_at: 1.year.ago..Time.now) #.order(:requisicion)
+      @justificaciones = Justificacion.includes(:creador).select("id, identificador, requisicion, creador_id, created_at, descripcion").where("creador_id in (#{ids})").where(created_at: 1.year.ago..Time.now) #.order(:requisicion)
     end
     render json: @justificaciones, methods: [:creador_cuenta_cimav]
 
