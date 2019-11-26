@@ -2,3 +2,6 @@
 
  grant all privileges on justificaciones.* to 'root'@'10.0.4.40' identified by '****'  with grant option;
 
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/tmp/mysql.sock'
+/usr/local/mysql/support-files/mysql.server stop
+/usr/local/mysql/support-files/mysql.server start

@@ -224,7 +224,8 @@ class JustificacionesController  < ApplicationController
         :num_dias_plazo, :motivo_seleccion, :identificador, :partida_id,
         :economica, :eficiencia_eficacia, :lugar_entrega, :porcen_garantia, :fecha_cotizar,
         :fecha_mercado, :created_at, :status,
-        :economica_txt, :eficiente, :eficiente_txt, :eficaz, :eficaz_txt
+        :economica_txt, :eficiente, :eficiente_txt, :eficaz, :eficaz_txt,
+        :acreditacion_marca
 
       )
   end
