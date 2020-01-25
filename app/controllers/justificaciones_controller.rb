@@ -75,6 +75,53 @@ class JustificacionesController  < ApplicationController
 
   end
 
+  def add_anexo
+    puts "Hello >> #{params[:id]}"
+    puts "Hello >> #{params[:anexos]}"
+
+    @justificacion = Justificacion.find(params[:id])
+
+    @justificacion.anexos += Array(params[:anexos])
+
+    if @justificacion.save!
+      head :ok
+    end
+
+  end
+
+  def get_anexos
+    @anexos = Justificacion.find(params[:justificacion_id]).anexos
+
+
+    # ids = Asistente.where("asistente_id = #{params[:id]}").collect(&:creador_id).concat(Array(params[:id])).join(',')
+    respond_to do |format|
+      format.json do
+        @anexos
+      end
+    end
+  end
+
+  def remove_anexo
+    @justificacion = Justificacion.find(params[:id])
+
+    idx = params[:idx].to_i
+
+    remain_anexos = @justificacion.anexos
+    if idx == 0 && @justificacion.anexos.size == 1
+      @justificacion.remove_anexos!
+    else
+      deleted_anexo = remain_anexos.delete_at(idx)
+      deleted_anexo.try(:remove!)
+      @justificacion.anexos = remain_anexos
+    end
+
+    if @justificacion.save!
+      head :ok
+    end
+
+    head :no_content
+  end
+
   # POST /justificaciones
   # POST /justificaciones.json
   def create
@@ -225,8 +272,8 @@ class JustificacionesController  < ApplicationController
         :economica, :eficiencia_eficacia, :lugar_entrega, :porcen_garantia, :fecha_cotizar,
         :fecha_mercado, :created_at, :status,
         :economica_txt, :eficiente, :eficiente_txt, :eficaz, :eficaz_txt,
-        :acreditacion_marca
-
+        :acreditacion_marca,
+        {anexos: []}, :idx
       )
   end
 

@@ -73,3 +73,6 @@ json.proveedores(@justificacion.proveedores) do |proveedor|
   json.cantidad_surtir proveedor.cantidad_surtir
   json.monto proveedor.monto
 end
+#json.anexos(@justificacion.anexos) do |anexo|
+#  json.identifier anexo.file.identifier
+#end

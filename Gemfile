@@ -58,3 +58,5 @@ gem 'prawn-table'
 group :production do
   gem 'therubyracer', :platform => :ruby
 end
+
+gem 'carrierwave', '~> 1.0'
