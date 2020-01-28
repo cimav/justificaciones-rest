@@ -6,13 +6,23 @@ class ProveedoresController < ApplicationController
   end
 
   def by_justificacion
-    proveedores = Proveedor.where("justificacion_id = #{params[:justificacion_id]}")
-    render json: proveedores, status: :ok
+    @proveedores = Proveedor.where("justificacion_id = #{params[:justificacion_id]}")
+    # render json: proveedores, status: :ok
+    respond_to do |format|
+      format.json do
+        @proveedores
+      end
+    end
   end
 
   def show
-    proveedor = Proveedor.find(params[:id])
-    render json: proveedor, status: :ok, location: proveedor
+    @proveedor = Proveedor.find(params[:id])
+    respond_to do |format|
+      format.json do
+        @proveedor
+      end
+    end
+    #render json: @proveedor, status: :ok, location: @proveedor
   end
 
   def create
@@ -41,7 +51,7 @@ class ProveedoresController < ApplicationController
 
   def proveedor_params
     params.require(:proveedor).permit(:id, :razon_social, :rfc, :clave, :justificacion_id, :es_nacional, :fuente, :domicilio,
-                                      :contacto, :telefono, :email, :banco, :cumple_tecnicas, :cantidad_surtir, :monto)
+                                      :contacto, :telefono, :email, :banco, :cumple_tecnicas, :cantidad_surtir, :monto, :moneda_id)
   end
 
 end
