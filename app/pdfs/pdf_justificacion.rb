@@ -185,7 +185,7 @@ de Adquisiciones, Arrendamientos y Servicios del Sector Público, publicado en e
       celda0 = {:content => '<b>PROVEEDOR</b>',:inline_format => true, size: 10, :borders => [:bottom], :border_color => "b3b3b3"}
       celda1 = {:content => '<b>IMPORTE SIN IVA</b>',:inline_format => true, align: :right, size: 10, :borders => [:bottom], :border_color => "b3b3b3"}
       celda2 = {:content => "<b>#{proveedor_seleccionado.razon_social}</b>", size: 10, :borders => [], :inline_format => true, :padding => 2}
-      celda3 = {:content => "<b>#{monto_to_currency(proveedor_seleccionado.monto)}</b>",:inline_format => true, align: :right, size: 10, :borders => [], :padding => 2}
+      celda3 = {:content => "<b>#{monto_to_currency(monto, proveedor_seleccionado)}</b>",:inline_format => true, align: :right, size: 10, :borders => [], :padding => 2}
 
       data = [[celda0, celda1],
               [celda2, celda3]]
@@ -212,7 +212,7 @@ de Adquisiciones, Arrendamientos y Servicios del Sector Público, publicado en e
 
       justificacion.proveedores.map do |prov|
         celda0 = {:content => "#{prov.razon_social}", size: 10, :borders => [], :inline_format => true, :padding => 2}
-        celda1 = {:content => "#{monto_to_currency(prov.monto)}",:inline_format => true, align: :right, size: 10, :borders => [], :padding => 2}
+        celda1 = {:content => "#{monto_to_currency(prov.monto, prov)}",:inline_format => true, align: :right, size: 10, :borders => [], :padding => 2}
         data.push([celda0, celda1])
       end
 =begin
@@ -293,7 +293,7 @@ que el procedimiento de contratación por adjudicación directa es el idóneo.".
     indent(30) do
       text 'V.1. MONTO ESTIMADO:', style: :bold
       move_down 20
-      text "El monto estimado de la contratación es la cantidad de <b>#{monto_to_currency(proveedor_seleccionado.monto)}</b>#{@mas_iva}, "+
+      text "El monto estimado de la contratación es la cantidad de <b>#{monto_to_currency(proveedor_seleccionado.monto, proveedor_seleccionado)}</b>#{@mas_iva}, "+
                "mismo resultó el más conveniente de acuerdo con la Investigación de Mercado, "+
                "mediante la cual se verificó previo al inicio del procedimiento "+
                "de contratación, la existencia de oferta de los #{@justificacion.biensServicios} en la cantidad, "+
@@ -308,9 +308,9 @@ que el procedimiento de contratación por adjudicación directa es el idóneo.".
     celda0 = {:content => 'SubTotal: ',:inline_format => true, align: :right, size: 10, :borders => [], :padding=>2}
     celda1 = {:content => 'Iva: ',:inline_format => true, align: :right, size: 10, :borders => [], :padding=>2}
     celda2 = {:content => '<b>Total: </b>', size: 10, align: :right,:borders => [], :inline_format => true, :padding=>2}
-    celda3 = {:content => "#{monto_to_currency(proveedor_seleccionado.monto)}",:inline_format => true, align: :right, size: 10, :borders => [], :padding=>2}
-    celda4 = {:content => "#{monto_to_currency(@justificacion.iva)}",:inline_format => true, align: :right, size: 10, :borders => [], :padding=>2}
-    celda5 = {:content => "<b>#{monto_to_currency(total)}</b>",:inline_format => true, align: :right, size: 10, :borders => [], :padding=>2}
+    celda3 = {:content => "#{monto_to_currency(proveedor_seleccionado.monto, proveedor_seleccionado)}",:inline_format => true, align: :right, size: 10, :borders => [], :padding=>2}
+    celda4 = {:content => "#{monto_to_currency(@justificacion.iva, proveedor_seleccionado)}",:inline_format => true, align: :right, size: 10, :borders => [], :padding=>2}
+    celda5 = {:content => "<b>#{monto_to_currency(total, proveedor_seleccionado)}</b>",:inline_format => true, align: :right, size: 10, :borders => [], :padding=>2}
 
     data = [[celda0, celda3],
             [celda1, celda4],
@@ -326,7 +326,7 @@ que el procedimiento de contratación por adjudicación directa es el idóneo.".
       parcialidad = (subTotal / justificacion.num_pagos) rescue 0.00
 
 
-      text "El monto total será pagado en <b>#{justificacion.num_pagos} pago/s de #{monto_to_currency(parcialidad)}</b>#{@mas_iva}. Los pagos se realizarán previa \f
+      text "El monto total será pagado en <b>#{justificacion.num_pagos} pago/s de #{monto_to_currency(parcialidad, proveedor_seleccionado)}</b>#{@mas_iva}. Los pagos se realizarán previa \f
 verificación de la entrega y calidad de los #{@justificacion.biensServicios} así como previo envío en formatos .pdf y .xml del Comprobante Fiscal Digital por Internet (CFDI) correspondiente que \f
 reúna los requisitos fiscales respectivos. Los pagos se efectuarán mediante TRANSFERENCIA y bajo las siguientes condiciones: \n\n #{justificacion.condiciones_pago}".gsub(/\f\n/, ''),:align => :justify, :inline_format => true, :size => 12, :leading => 2, :character_spacing => 0.30
     end
@@ -464,8 +464,8 @@ reúna los requisitos fiscales respectivos. Los pagos se efectuarán mediante TR
     return name
   end
 
-  def monto_to_currency(monto)
-    ActionController::Base.helpers.number_to_currency(monto, :unit => @justificacion.moneda.simbolo) + " " +  @justificacion.moneda.code
+  def monto_to_currency(monto, proveedor)
+    ActionController::Base.helpers.number_to_currency(monto, :unit =>proveedor.moneda.simbolo) + " " +  proveedor.moneda.code
   end
 
 end

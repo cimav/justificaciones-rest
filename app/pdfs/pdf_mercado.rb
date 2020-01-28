@@ -65,7 +65,7 @@ class PdfMercado < Prawn::Document
         draw_text :"#{idx}) #{provee.razon_social.upcase}",  style: :bold, size: 11, :at=>[20,row-=14]
         indent(10) do
           draw_text :"Precio:",  size: 11, :at=>[20,row-=14]
-          draw_text :"#{monto_to_currency(provee.monto)}",  size: 11, :at=>[56,row]
+          draw_text :"#{monto_to_currency(provee.monto, provee)}",  size: 11, :at=>[56,row]
           draw_text :"Origen del bien:",  size: 11, :at=>[164,row]
           draw_text :"#{provee.es_nacional ? "Nacional" : "Extranjero"}",  size: 11, :at=>[238,row]
           draw_text :"Fuente de consulta:",  size: 11, :at=>[340,row]
@@ -107,8 +107,8 @@ class PdfMercado < Prawn::Document
     return name
   end
 
-  def monto_to_currency(monto)
-    ActionController::Base.helpers.number_to_currency(monto, :unit => @justificacion.moneda.simbolo) + " " +  @justificacion.moneda.code
+  def monto_to_currency(monto, proveedor)
+    ActionController::Base.helpers.number_to_currency(monto, :unit => proveedor.moneda.simbolo) + " " +  proveedor.moneda.code
   end
 
   def si_no(value)
