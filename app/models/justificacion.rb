@@ -13,6 +13,7 @@ class Justificacion < ApplicationRecord
   attr_accessor :biensServicios, :creador_cuenta_cimav
 
   mount_uploaders :anexos, AnexoUploader
+  serialize :anexos
 
   def biensServicios
     if bien_servicio == 0
