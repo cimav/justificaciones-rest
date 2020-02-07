@@ -185,7 +185,7 @@ de Adquisiciones, Arrendamientos y Servicios del Sector Público, publicado en e
       celda0 = {:content => '<b>PROVEEDOR</b>',:inline_format => true, size: 10, :borders => [:bottom], :border_color => "b3b3b3"}
       celda1 = {:content => '<b>IMPORTE SIN IVA</b>',:inline_format => true, align: :right, size: 10, :borders => [:bottom], :border_color => "b3b3b3"}
       celda2 = {:content => "<b>#{proveedor_seleccionado.razon_social}</b>", size: 10, :borders => [], :inline_format => true, :padding => 2}
-      celda3 = {:content => "<b>#{monto_to_currency(monto, proveedor_seleccionado)}</b>",:inline_format => true, align: :right, size: 10, :borders => [], :padding => 2}
+      celda3 = {:content => "<b>#{monto_to_currency(proveedor_seleccionado.monto, proveedor_seleccionado)}</b>",:inline_format => true, align: :right, size: 10, :borders => [], :padding => 2}
 
       data = [[celda0, celda1],
               [celda2, celda3]]
