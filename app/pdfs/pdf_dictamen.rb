@@ -344,7 +344,14 @@ En cumplimiento a lo establecido en el penúltimo párrafo del artículo 71 del 
 
     text "IX.- DICTAMEN", :align=>:center, style: :bold
     move_down 20
-    txt ="Con fundamento a lo establecido en los artículos 40 y 41 penúltimo párrafo de la Ley de Adquisiciones, Arrendamientos y Servicios del Sector Público y una vez \f
+
+    if justificacion.tipo.fraccion == 5
+      txt ="El procedimiento de contratación propuesto es el de adjudicación directa bajo el supuesto de excepción a la licitación pública \f
+establecido en la fracción #{justificacion.tipo.romano} del artículo 41 de la Ley de Adquisiciones, Arrendamientos y Servicios del Sector \f
+Publico el cual señala que cuando <b>“Derivado de caso fortuito o fuerza mayor, no sea posible obtener bienes o servicios mediante el procedimiento de licitación pública en el tiempo requerido para atender la eventualidad de que se trate, en este supuesto las cantidades o conceptos deberán limitarse a lo estrictamente necesario para afrontarla“</b>; así como a lo establecido en el artículo 72 fracción #{justificacion.tipo.romano} del Reglamento de la Ley de Adquisiciones, \f
+Arrendamientos y Servicios del Sector Publico el cual establece que <b>“La excepción a la licitación pública prevista en la fracción V, será procedente cuando exista un nexo causal directo entre el caso fortuito o la fuerza mayor y la imposibilidad o impedimento de la dependencia o entidad para obtener, en el tiempo requerido, los bienes o servicios que necesita mediante el procedimiento de licitación pública“</b>."
+    else
+      txt ="Con fundamento a lo establecido en los artículos 40 y 41 penúltimo párrafo de la Ley de Adquisiciones, Arrendamientos y Servicios del Sector Público y una vez \f
 acreditados los criterios, razones, fundamentos y los motivos sobre la procedencia de la excepción a la licitación pública, con el carácter de titular del área requirente, \f
 <b>dictamino</b> bajo mi propia responsabilidad, sobre la procedencia de la excepción a la licitación pública y al procedimiento de contratación por adjudicación directa del \f
 suministro de los #{@justificacion.biensServicios} consumibles de herramientas menores para el mantenimiento del equipo y edificio del Centro de Investigación en Materiales Avanzados, S.C. (CIMAV) “; \f
@@ -352,6 +359,7 @@ cuya partida presupuestal según el clasificador por objeto del gasto es  la num
 supuesto de excepción, en la fracción #{justificacion.tipo.romano} del   artículo 41 de la Ley de Adquisiciones, Arrendamientos y Servicios del Sector Publico, el cual \f
 señala que  cuando <b>“Se haya declarado desierta una licitación pública, siempre que se mantengan los requisitos establecidos en la convocatoria a la licitación cuyo \f
 incumplimiento haya sido considerado como causa de desechamiento porque afecta directamente la solvencia de las proposiciones”</b>."
+      end
     txt = txt.gsub(/\f\n/, '')
     text txt, :align=>:justify, :inline_format => true
 
