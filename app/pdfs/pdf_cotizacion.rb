@@ -14,7 +14,7 @@ class PdfCotizacion < Prawn::Document
     when 2
       direccion_cimav = "Calle CIMAV #110,\n Ejido Arroyo Seco\nDurango, Dgo. México. C.P. 34147"
       email_acuse = "jorge.parra@cimav.edu.mx"
-    when 1
+    when 3
       direccion_cimav = "Alianza Norte 202,\n Parque de Investigación e Innovación Tecnológica\nApodaca, Nuevo León, México. C.P. 66600"
       email_acuse = "alberto.lara@cimav.edu.mx"
     when 4
