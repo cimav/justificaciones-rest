@@ -12,7 +12,7 @@ default: &default
 development:
   <<: *default
   pool: 5
-  database: justificador6_development
+  database: justificaciones_development
 
 production:
   <<: *default

@@ -6,9 +6,24 @@ class PdfCotizacion < Prawn::Document
   def initialize(justificacion, provee_id)
     super()
 
+    Prawn::Font::AFM.hide_m17n_warning = true
+
     proveedor = Proveedor.find(provee_id)
 
-    direccion_cimav = "Miguel de Cervantes 120, Complejo Industrial Chihuahua\nChihuahua, Chih. México. C.P. 31136"
+    case justificacion.creador.sede
+    when 2
+      direccion_cimav = "Calle CIMAV #110,\n Ejido Arroyo Seco\nDurango, Dgo. México. C.P. 34147"
+      email_acuse = "jorge.parra@cimav.edu.mx"
+    when 1
+      direccion_cimav = "Alianza Norte 202,\n Parque de Investigación e Innovación Tecnológica\nApodaca, Nuevo León, México. C.P. 66600"
+      email_acuse = "alberto.lara@cimav.edu.mx"
+    when 4
+      direccion_cimav = "Paseo Triunfo de la República 3340,\n Edificio Atlantis, tercer piso\nCd. Juárez, Chihuahua, México. C.P. 32330"
+      email_acuse = "jorge.parra@cimav.edu.mx"
+    else
+      direccion_cimav = "Miguel de Cervantes 120,\n Complejo Industrial Chihuahua\nChihuahua, Chih. México. C.P. 31136"
+      email_acuse = "jorge.parra@cimav.edu.mx"
+    end
 
 =begin
     font_families.update("Arial" => {
@@ -82,7 +97,7 @@ Para el caso de dudas, comentarios y/o aclaraciones, remitirlas al correo: <b>#{
 
 La fecha límite para presentar la cotización es el: <b>#{fecha(justificacion.fecha_cotizar)}</b>
 
-Favor de enviar acuse de recibo de esta solicitud al correo electrónico a: <b>jorge.parra@cimav.edu.mx</b>
+Favor de enviar acuse de recibo de esta solicitud al correo electrónico a: <b>#{email_acuse}</b>
 
 <b>NOTA</b>: Vencido el plazo de recepción de cotizaciones, el <b>Cimav</b> con fundamento en lo previsto en el artículo 26 de la LAASSP, \f
 se definirá el procedimiento a seguir para la contratación, el cual puede ser: LICITACIÓN PÚBLICA, INVITACIÓN A CUANDO MENOS \f
