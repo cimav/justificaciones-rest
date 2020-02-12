@@ -22,6 +22,8 @@ Rails.application.routes.draw do
 
   get '/requisiciones_netmultix/search/:requisicion', to: 'requisiciones_netmultix#search'
 
+  get '/proyectos_netmultix/search/:proyecto', to: 'proyectos_netmultix#search'
+
   put '/justificaciones/add_anexo/:id', to: 'justificaciones#add_anexo'
   get '/justificaciones/get_anexos/:justificacion_id', to: 'justificaciones#get_anexos'
   delete '/justificaciones/remove_anexo/:id/:idx', to: 'justificaciones#remove_anexo'
