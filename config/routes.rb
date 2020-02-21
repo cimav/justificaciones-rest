@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :monedas
   resources :partidas
   resources :empleados
-  resources :proveedores
+
   resources :proveedores_netmultix
   resources :justificaciones
 
@@ -27,5 +27,9 @@ Rails.application.routes.draw do
   put '/justificaciones/add_anexo/:id', to: 'justificaciones#add_anexo'
   get '/justificaciones/get_anexos/:justificacion_id', to: 'justificaciones#get_anexos'
   delete '/justificaciones/remove_anexo/:id/:idx', to: 'justificaciones#remove_anexo'
+
+  get '/proveedores/send_focon04/:id/:justificacion_id', to: 'proveedores#send_focon04'
+
+  resources :proveedores
 
 end

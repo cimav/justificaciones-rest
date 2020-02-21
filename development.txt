@@ -7,5 +7,15 @@ tail -f production.log
 rvm use ruby-2.6.3
 
 ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/tmp/mysql.sock'
-/usr/local/mysql/support-files/mysql.server stop
+/usr/local/mysql/support-files/mysql.server stop:
+
 /usr/local/mysql/support-files/mysql.server start
+
+ /usr/local/opt/mysql@5.7/support-files/mysql.server stop
+ /usr/local/opt/mysql@5.7/bin/mysql.server
+ /usr/local/opt/mysql@5.7/support-files/mysql.server start
+
+
+RAILS_ENV=production PASSWD_NETMULTIX=N3tMult1x@CIMAV FERMI_DATABASE_PASSWORD=azul0735 SECRET_KEY_BASE=d140269c106b6d064cdd670a5aace0bbbb1400de545377a47836dbdab8104f2fdf0ab87e6b7982819d1bcc2ccf6a5f093985a0895970f01f30b0b15378a090e9 rails s
+
+RUBYOPT='-W:no-deprecated -W:no-experimental'

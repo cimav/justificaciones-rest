@@ -49,6 +49,17 @@ class ProveedoresController < ApplicationController
     head :no_content
   end
 
+  def send_focon04
+
+    proveedor = Proveedor.find(params[:id])
+    justificacion = Justificacion.find(params[:justificacion_id])
+
+    ProveedorMailer.send_focon04(proveedor, justificacion).deliver
+
+    render json: proveedor, status: :ok, location: proveedor
+
+  end
+
   def proveedor_params
     params.require(:proveedor).permit(:id, :razon_social, :rfc, :clave, :justificacion_id, :es_nacional, :fuente, :domicilio,
                                       :contacto, :telefono, :email, :banco, :cumple_tecnicas, :cantidad_surtir, :monto, :moneda_id)
