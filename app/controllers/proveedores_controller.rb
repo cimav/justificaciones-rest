@@ -54,7 +54,12 @@ class ProveedoresController < ApplicationController
     proveedor = Proveedor.find(params[:id])
     justificacion = Justificacion.find(params[:justificacion_id])
 
-    ProveedorMailer.send_focon04(proveedor, justificacion).deliver
+    begin
+      mail = ProveedorMailer.send_focon04(proveedor, justificacion).deliver_later
+      puts "Delivered mail => #{mail}"
+    rescue StandardError => e
+      puts "Delivery error => #{e}"
+    end
 
     render json: proveedor, status: :ok, location: proveedor
 

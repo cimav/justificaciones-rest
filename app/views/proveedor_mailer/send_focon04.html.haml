@@ -1,18 +1,13 @@
 %img(src="https://cimav.edu.mx/wp-content/themes/cimav2017/img/logo-top.png" )
 
 %h2 Solicitud de Cotización
-%h4 #{@justificacion.created_at}
-
--#
-  %div
-    %h3{:style=>"display:inline;"} Solicitud:
-    %h2
-      =@solicitud.codigo
-  %br
+%h4 Fecha: #{@justificacion.created_at.to_s(:short)}
 
 %div
   %span A quien corresponda:
   %strong #{@proveedor.razon_social},
+  %br
+  %strong #{@proveedor.contacto},
   %br
   %br
   %span El

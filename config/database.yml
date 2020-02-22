@@ -12,6 +12,7 @@ default: &default
 development:
   <<: *default
   pool: 5
+  host: localhost
   database: justificaciones_development
 
 production:
