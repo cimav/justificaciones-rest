@@ -19,3 +19,8 @@ ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/tmp/mys
 RAILS_ENV=production PASSWD_NETMULTIX=N3tMult1x@CIMAV FERMI_DATABASE_PASSWORD=azul0735 SECRET_KEY_BASE=d140269c106b6d064cdd670a5aace0bbbb1400de545377a47836dbdab8104f2fdf0ab87e6b7982819d1bcc2ccf6a5f093985a0895970f01f30b0b15378a090e9 rails s
 
 RUBYOPT='-W:no-deprecated -W:no-experimental'
+
+rbenv versions
+rbenv local 2.6.3
+
+ /usr/local/opt/mysql@8.0/support-files/mysql.server stop

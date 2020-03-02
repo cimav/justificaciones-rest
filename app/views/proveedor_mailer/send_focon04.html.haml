@@ -1,32 +1,37 @@
 %img(src="https://cimav.edu.mx/wp-content/themes/cimav2017/img/logo-top.png" )
 
 %h2 Solicitud de Cotización
-%h4 Fecha: #{@justificacion.created_at.to_s(:short)}
+%h4
+  %span Fecha:
+  %span{:style=>'background: yellow;'} #{@justificacion.created_at.strftime("%d-%b-%G")}
 
-%div
-  %span A quien corresponda:
-  %strong #{@proveedor.razon_social},
-  %br
-  %strong #{@proveedor.contacto},
-  %br
-  %br
-  %span El
-  %strong Cimav
-  %span requiere.....
-  %br
-  %br
-  %span Se agradece....:
-
-  %br
-  %span Responder el correo a:
-  %strong #{@justificacion.elaboro.nombre}
-  %span remitirlo al correo
-  %strong #{@justificacion.elaboro.cuenta_cimav}@cimav.edu.mx
-
-
+%span A quien corresponda:
 %br
 %br
-= "Departamento de Adquisiciones"
+%strong #{@proveedor.razon_social},
 %br
-= "Centro de Investigación en Materiales Avanzados, S.C"
+%strong #{@proveedor.contacto}
 %br
+%br
+El
+%strong CIMAV,
+como Centro de Investigación del Gobierno Federal, requiere su valioso apoyo a efecto de proporcionarnos la cotización de los bienes y/o servicios y/o arrendamientos descritos en la última hoja de este documentos anexos.
+%br
+%br
+Favor de cotizar el formato anexo de la siguiente manera:
+%ul
+  %li Su cotización debe contener la descripción solicitada con precios antes y después de iva.
+  %li Especificar  la fecha de entrega ,condiciones de pago , vigencia y flete según sea el caso.
+  %li La cotización deberá estar firmada.
+%br
+El
+%strong CIMAV
+agradece sus servicios y atención
+%br
+%p
+  %span Favor de remitir a:
+  %strong #{@justificacion.elaboro.nombre} #{@justificacion.elaboro.cuenta_cimav}@cimav.edu.mx
+
+%p
+  %span FECHA LÍMITE PARA COTIZAR ES:
+  %strong{:style=>'background: yellow;'} #{@justificacion.fecha_cotizar.strftime("%d-%b-%G")}
