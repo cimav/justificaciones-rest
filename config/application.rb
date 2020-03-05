@@ -30,6 +30,9 @@ module Justificador6
     # Skip views, helpers and assets when generating a new resource.
     # config.api_only = true
 
+    #:user_name      => "servicio.cliente@cimav.edu.mx",
+    #:password       => "S1gr3@2016"
+
     # Email Configuration
     config.action_mailer.raise_delivery_errors = true
     config.action_mailer.delivery_method = :smtp
@@ -38,8 +41,8 @@ module Justificador6
         :port      => 587,
         :domain    => "cimav.edu.mx",
         :authentication => :plain,
-        :user_name      => "servicio.cliente@cimav.edu.mx",
-        :password       => "S1gr3@2016",
+        :user_name      => "servicio.adquisiciones@cimav.edu.mx",
+        :password       => "temporal15",
         :enable_starttls_auto => true
     }
 
