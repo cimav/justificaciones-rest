@@ -33,6 +33,9 @@ module Justificador6
     #:user_name      => "servicio.cliente@cimav.edu.mx",
     #:password       => "S1gr3@2016"
 
+    #:user_name      => "servicio.adquisiciones@cimav.edu.mx",
+    #:password       => "temporal15",
+    #
     # Email Configuration
     config.action_mailer.raise_delivery_errors = true
     config.action_mailer.delivery_method = :smtp
@@ -43,7 +46,8 @@ module Justificador6
         :authentication => :plain,
         :user_name      => "servicio.adquisiciones@cimav.edu.mx",
         :password       => "temporal15",
-        :enable_starttls_auto => true
+        :enable_starttls_auto => true,
+        :openssl_verify_mode => 'none'
     }
 
   end
