@@ -7,8 +7,10 @@ class Tipo < ApplicationRecord
     case fraccion
       when 0
         "--"
-      when 1
+      when 1	
         "I"
+      when 2
+	"II"
       when 3
         "III"
       when 5

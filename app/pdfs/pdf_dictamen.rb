@@ -178,7 +178,11 @@ disponible en el Sistema informático denominado COMPRANET:"
     move_down 20
     text "IV.- PROCEDIMIENTO DE CONTRATACION PROPUESTO", :align=>:center, style: :bold
     move_down 20
-    if justificacion.tipo.fraccion == 5
+    if  justificacion.tipo.fraccion == 2
+    txt ="El procedimiento de contratación propuesto es el de adjudicación directa bajo el supuesto de excepción a la licitación pública \f
+establecido en la fracción #{justificacion.tipo.romano} del artículo 41 de la Ley de Adquisiciones, Arrendamientos y Servicios del Sector \f
+Publico el cual señala que cuando <b>¨Peligre o se altere el orden social, la economía, los servicios públicos, la salubridad, la seguridad o el ambiente de alguna zona o región del país como consecuencia de caso fortuito o de fuerza mayor¨</b>."	
+    elsif justificacion.tipo.fraccion == 5
     txt ="El procedimiento de contratación propuesto es el de adjudicación directa bajo el supuesto de excepción a la licitación pública \f
 establecido en la fracción #{justificacion.tipo.romano} del artículo 41 de la Ley de Adquisiciones, Arrendamientos y Servicios del Sector \f
 Publico el cual señala que cuando <b>“Derivado de caso fortuito o fuerza mayor, no sea posible obtener bienes o servicios mediante el procedimiento de licitación pública en el tiempo requerido para atender la eventualidad de que se trate, en este supuesto las cantidades o conceptos deberán limitarse a lo estrictamente necesario para afrontarla“</b>; así como a lo establecido en el artículo 72 fracción #{justificacion.tipo.romano} del Reglamento de la Ley de Adquisiciones, \f
@@ -346,7 +350,11 @@ En cumplimiento a lo establecido en el penúltimo párrafo del artículo 71 del 
     text "IX.- DICTAMEN", :align=>:center, style: :bold
     move_down 20
 
-    if justificacion.tipo.fraccion == 5
+    if justificacion.tipo.fraccion == 2
+    txt ="El procedimiento de contratación propuesto es el de adjudicación directa bajo el supuesto de excepción a la licitación pública \f
+establecido en la fracción #{justificacion.tipo.romano} del artículo 41 de la Ley de Adquisiciones, Arrendamientos y Servicios del Sector \f
+Publico el cual señala que cuando <b>¨Peligre o se altere el orden social, la economía, los servicios públicos, la salubridad, la seguridad o el ambiente de alguna zona o región del país como consecuencia de caso fortuito o de fuerza mayor¨</b>."
+    elsif justificacion.tipo.fraccion == 5
       txt ="El procedimiento de contratación propuesto es el de adjudicación directa bajo el supuesto de excepción a la licitación pública \f
 establecido en la fracción #{justificacion.tipo.romano} del artículo 41 de la Ley de Adquisiciones, Arrendamientos y Servicios del Sector \f
 Publico el cual señala que cuando <b>“Derivado de caso fortuito o fuerza mayor, no sea posible obtener bienes o servicios mediante el procedimiento de licitación pública en el tiempo requerido para atender la eventualidad de que se trate, en este supuesto las cantidades o conceptos deberán limitarse a lo estrictamente necesario para afrontarla“</b>; así como a lo establecido en el artículo 72 fracción #{justificacion.tipo.romano} del Reglamento de la Ley de Adquisiciones, \f

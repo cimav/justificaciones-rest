@@ -38,7 +38,7 @@ class JustificacionesController  < ApplicationController
         send_data pdf.render,  type: 'application/pdf', disposition: "inline"
 =end
 
-        if @justificacion.tipo.fraccion == 7 || @justificacion.tipo.fraccion == 5
+        if @justificacion.tipo.fraccion == 7  || @justificacion.tipo.fraccion == 5 || @justificacion.tipo.fraccion == 2
           pdf = PdfDictamen.new(@justificacion)
         else
           pdf = PdfJustificacion.new(@justificacion)
@@ -131,43 +131,13 @@ class JustificacionesController  < ApplicationController
     @justificacion.fecha_mercado = 10.days.from_now
     @justificacion.fecha_elaboracion = 13.days.from_now
 
-    @justificacion.economica_txt = 'Con la Investigación de Mercado se establecieron precios y demás condiciones de calidad, '+
-        "financiamiento y oportunidad, respecto de los bienes o servicios requeridos, con lo cual "+
-        'se asegura cumplir con los principios del artículo 134 de la Constitución Política de los Estados '+
-        'Unidos Mexicanos y de la Ley de Adquisiciones, Arrendamientos y Servicios del Sector Público, '+
-        'en cuanto a precio, calidad, financiamiento, oportunidad y demás circunstancias pertinentes, por '+
-        'lo que el procedimiento de adjudicación directa permite en contraposición al procedimiento de '+
-        "licitación pública, obtener con mayor oportunidad los bienes o servicios requeridos al "+
-        'menor costo económico para el CIMAV, S.C. según lo detallado en la investigación de mercado '+
-        'que se realizó, generando ahorro de recursos por estar proponiendo la adjudicación al '+
-        'proveedor único cuya propuesta se considera aceptable en cuanto a su solvencia. '+
-        'Lo anterior de acuerdo con lo establecido en el numeral 4.2.4 (ADJUDICACIÓN DIRECTA) y '+
-        'numeral 4.2.4.1.1 (Verificar Acreditamiento de Excepción) del Acuerdo por el que se modifica el '+
-        'Manual Administrativo de Aplicación General en Materia de Adquisiciones, Arrendamientos y '+
-        'Servicios del Sector Público, publicado en el Diario Oficial de la Federación el 21 de noviembre '+
-        'de 2012.'
-    @justificacion.eficaz_txt = 'Con el procedimiento de contratación por adjudicación directa, se logrará obtener con '+
-        "oportunidad los bienes o servicios atendiendo a las características requeridas en "+
-        'contraposición con el procedimiento de licitación pública, dado que se reducen tiempos y se '+
-        'generan economías; aunado a que la persona propuesta cuenta con experiencia y capacidad '+
-        'para satisfacer las necesidades requeridas, además de que es el único que ofrece las mejores '+
-        'condiciones disponibles en cuanto a precio, calidad y oportunidad, con lo que se lograría el '+
-        'cumplimiento de los objetivos y resultados deseados en el tiempo requerido, situación que se '+
-        'puede demostrar en base a la investigación de mercado. Lo anterior de acuerdo con lo establecido '+
-        'en el numeral 4.2.4 (ADJUDICACIÓN DIRECTA) y numeral 4.2.4.1.1 (Verificar Acreditamiento de '+
-        'Excepción) del Acuerdo por el que se modifica el Manual Administrativo de Aplicación General '+
-        'en Materia de Adquisiciones, Arrendamientos y Servicios del Sector Público, publicado en el '+
-        'Diario Oficial de la Federación el 21 de noviembre de 2012.'
-    @justificacion.eficiente_txt = 'Con el procedimiento de adjudicación directa, a diferencia del procedimiento de licitación '+
-        'pública, se logra el uso racional de recursos con los que cuenta la Entidad para realizar la '+
-        'contratación, obteniendo las mejores condiciones de precio, calidad y oportunidad, evitando la '+
-        'pérdida de tiempo y recursos al Estado, lo cual se demuestra con la investigación de mercado que'+
-        'se realizó, quedando evidencia de su resultado ya que los recursos disponibles con los que cuenta '+
-        'el CIMAV se aplican conforme a los lineamientos de racionalidad y austeridad presupuestaria. Lo '+
-        'anterior de acuerdo con lo establecido en el numeral 4.2.4 (ADJUDICACIÓN DIRECTA) y numeral '+
-        '4.2.4.1.1 (Verificar Acreditamiento de Excepción) del Acuerdo por el que se modifica el Manual '+
-        ' Administrativo de Aplicación General en Materia de Adquisiciones, Arrendamientos y Servicios del '+
-        ' Sector Público, publicado en el Diario Oficial de la Federación el 21 de noviembre de 2012.'
+    @justificacion.economica_txt = "Se efectuó una investigación de mercado para comparar precios y demás condiciones de calidad, financiamiento y oportunidad, respecto del bien requerido, dando como resultado que la persona moral propuesta, fue la que presentó las mejores condiciones en cuanto a precio, calidad, financiamiento y oportunidad, con lo cual se asegura cumplir con los preceptos del Artículo 134 de la Constitución Política de los Estados Unidos Mexicanos; así como en los Artículos 40 y 41, fracción XVII de la Ley de Adquisiciones, Arrendamientos y Servicios del Sector Público, por lo que resulta adecuado proceder a la adjudicación directa a favor del proveedor antes referido."
+
+
+    @justificacion.eficaz_txt = "Mediante el procedimiento de adjudicación directa, se conseguirán las mejores condiciones disponibles para la Entidad en cuanto a precio, calidad, y oportunidad, en adición a que el Proveedor propuesto cuenta con la experiencia y capacidad idóneas para suministrar el bien requerido, y con ello se lograrán los objetivos y resultados deseados"
+
+    @justificacion.eficiente_txt = "Con el procedimiento de adjudicación propuesto se garantizan las mejores condiciones de precio, calidad, oportunidad y demás circunstancias pertinentes debido a que se optimiza el uso y aplicación de los recursos financieros, en virtud de que esta Entidad cuenta con procesos y procedimientos claros y expeditos, con responsables y responsabilidades plenamente identificados para la contratación requerida, con lo cual se evitará la pérdida de tiempo y recursos a la Entidad."
+
 
     if @justificacion.save!
       render json: @justificacion, status: :created
