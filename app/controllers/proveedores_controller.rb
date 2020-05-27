@@ -55,7 +55,7 @@ class ProveedoresController < ApplicationController
     justificacion = Justificacion.find(params[:justificacion_id])
 
     begin
-      ProveedorMailer.send_focon04(proveedor, justificacion).deliver_now
+      ProveedorMailer.send_focon04(proveedor, justificacion).deliver
     rescue StandardError, Net::SMTPAuthenticationError, Net::SMTPServerBusy, Net::SMTPSyntaxError, Net::SMTPFatalError, Net::SMTPUnknownError => e
       puts "Delivery error => #{e}"
     end

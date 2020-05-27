@@ -243,7 +243,7 @@ class JustificacionesController  < ApplicationController
         :fecha_mercado, :created_at, :status,
         :economica_txt, :eficiente, :eficiente_txt, :eficaz, :eficaz_txt,
         :acreditacion_marca,
-        :proyecto_objeto,
+        :proyecto_objeto, :iva_tasa,
         {anexos: []}, :idx
       )
   end

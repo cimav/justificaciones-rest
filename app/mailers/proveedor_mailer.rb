@@ -22,6 +22,7 @@ class ProveedorMailer < ApplicationMailer
     end
 
     mail(:to => proveedor.email,
+         :cc => reply_to,
          :from => 'Adquisiciones Cimav <servicio.adquisiciones@cimav.edu.mx>',
          :subject=>"CIMAV - Solicitud de cotización ##{@justificacion.requisicion}",
          :reply_to => reply_to)
