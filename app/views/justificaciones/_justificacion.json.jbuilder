@@ -12,7 +12,8 @@ json.extract! justificacion,
               :economica, :eficiencia_eficacia, :lugar_entrega, :porcen_garantia, :fecha_cotizar,
               :fecha_mercado, :created_at, :status,
               :economica_txt, :eficiente, :eficiente_txt, :eficaz, :eficaz_txt,
-              :acreditacion_marca
+              :acreditacion_marca,
+	      :asesor_id	
 
 
 #

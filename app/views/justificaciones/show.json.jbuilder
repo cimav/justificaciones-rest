@@ -85,3 +85,15 @@ end
 #json.anexos(@justificacion.anexos) do |anexo|
 #  json.identifier anexo.file.identifier
 #end
+json.asesor do
+  if @justificacion.asesor then
+    json.id @justificacion.asesor.id
+    json.clave @justificacion.asesor.clave
+    json.tipo @justificacion.asesor.tipo
+    json.nombre @justificacion.asesor.nombre
+    json.sede @justificacion.asesor.sede
+    json.cuenta_cimav @justificacion.asesor.cuenta_cimav
+  end
+end
+
+
