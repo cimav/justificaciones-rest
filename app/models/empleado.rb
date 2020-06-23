@@ -7,5 +7,6 @@ class Empleado < ActiveRecord::Base
 
   attr_accessor :is_asistente
   attr_accessor :is_admin
+  attr_accessor :is_asesor
 
 end

@@ -14,12 +14,14 @@ class JustificacionesController  < ApplicationController
 
     ids = Asistente.where("asistente_id = #{params[:id]}").collect(&:creador_id).concat(Array(params[:id])).join(',')
     # @justificaciones = Justificacion.where("creador_id = #{params[:id]}")
-    if ids.include? "999"
-      @justificaciones = Justificacion.includes(:creador).select("id, identificador, requisicion, creador_id, created_at, descripcion").where(created_at: 1.year.ago..1.year.after).order(created_at: :desc)
+    if ids.include? "901" # Admin
+      @justificaciones = Justificacion.includes(:creador, :asesor).select("id, identificador, requisicion, creador_id, created_at, descripcion, asesor_id").where(created_at: 1.year.ago..1.year.after).order(created_at: :desc)
+    elsif ids.include? "902" # Asesor
+      @justificaciones = Justificacion.includes(:creador, :asesor).select("id, identificador, requisicion, creador_id, created_at, descripcion, asesor_id").where("asesor_id in (#{ids})").where(created_at: 1.year.ago..1.year.after).order(created_at: :desc)
     else
-      @justificaciones = Justificacion.includes(:creador).select("id, identificador, requisicion, creador_id, created_at, descripcion").where("creador_id in (#{ids})").where(created_at: 1.year.ago..1.year.after).order(created_at: :desc)
+      @justificaciones = Justificacion.includes(:creador, :asesor).select("id, identificador, requisicion, creador_id, created_at, descripcion, asesor_id").where("creador_id in (#{ids})").where(created_at: 1.year.ago..1.year.after).order(created_at: :desc)
     end
-    render json: @justificaciones, methods: [:creador_cuenta_cimav]
+    render json: @justificaciones, methods: [:creador_cuenta_cimav, :asesor_cuenta_cimav]
 
   end
 
@@ -170,6 +172,7 @@ class JustificacionesController  < ApplicationController
       replica['fecha_cotizar'] = 7.days.from_now
       replica['fecha_mercado'] = 10.days.from_now
       replica['fecha_elaboracion'] = 13.days.from_now
+      replica['asesor_id'] = nil
       replica = Justificacion.new(replica)
       if replica.save!
         origen.proveedores.each do |prov_origen|
@@ -244,7 +247,8 @@ class JustificacionesController  < ApplicationController
         :economica_txt, :eficiente, :eficiente_txt, :eficaz, :eficaz_txt,
         :acreditacion_marca,
         :proyecto_objeto, :iva_tasa,
-        {anexos: []}, :idx
+        {anexos: []}, :idx,
+        :asesor_id
       )
   end
 

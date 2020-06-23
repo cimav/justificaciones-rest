@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :tipos
   resources :monedas
   resources :partidas
+  get '/empleados/asesores', to: 'empleados#asesores'
   resources :empleados
 
   resources :proveedores_netmultix

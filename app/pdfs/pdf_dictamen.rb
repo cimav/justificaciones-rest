@@ -42,7 +42,6 @@ class PdfDictamen < Prawn::Document
         "#{@justificacion.biensServicios} son las siguientes:\n\n " + entrega
     ]
 
-=begin
     font_families.update("Arial" => {
         :normal => "public/assets/fonts/Arial.ttf",
         :italic => "public/assets/fonts/Arial Italic.ttf",
@@ -50,7 +49,7 @@ class PdfDictamen < Prawn::Document
         :bold_italic => "public/assets/fonts/Arial Bold Italic.ttf"
     })
     font "Arial"
-=end
+
     # font 'Helvetica'
     font_size 11
 

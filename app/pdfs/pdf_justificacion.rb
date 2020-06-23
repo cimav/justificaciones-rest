@@ -88,7 +88,6 @@ de Adquisiciones, Arrendamientos y Servicios del Sector Público, publicado en e
                     'Aplicación General en Materia de Adquisiciones, Arrendamientos y Servicios del Sector Público, '+
                     'publicado en el Diario Oficial de la Federación el 21 de noviembre de 2012.']
 
-=begin
     font_families.update("Arial" => {
         :normal => "public/assets/fonts/Arial.ttf",
         :italic => "public/assets/fonts/Arial Italic.ttf",
@@ -96,7 +95,6 @@ de Adquisiciones, Arrendamientos y Servicios del Sector Público, publicado en e
         :bold_italic => "public/assets/fonts/Arial Bold Italic.ttf"
     })
     font "Arial"
-=end
 
     #font "/Library/Fonts/Verdana.ttf" #Arial Unicode
     # font "/Library/Fonts/Arial"
