@@ -12,38 +12,38 @@
 
 ActiveRecord::Schema.define(version: 20200527163848) do
 
-  create_table "asistentes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "asistentes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "asistente_id"
     t.integer "creador_id"
   end
 
-  create_table "justificaciones", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "justificaciones", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "creador_id"
     t.integer "elaboro_id"
     t.integer "autorizo_id"
     t.bigint "tipo_id"
     t.bigint "partida_id"
     t.integer "proveedor_id"
-    t.string "identificador", null: false, collation: "utf8_general_ci"
-    t.string "requisicion", null: false, collation: "utf8_general_ci"
+    t.string "identificador"
+    t.string "requisicion"
     t.string "proyecto"
     t.integer "bien_servicio"
     t.decimal "iva", precision: 10, scale: 2
-    t.text "condiciones_pago", null: false, collation: "utf8_general_ci"
+    t.text "condiciones_pago"
     t.text "razon_compra"
     t.string "terminos_entrega"
     t.integer "plazo"
     t.date "fecha_inicio"
     t.date "fecha_termino"
     t.date "fecha_elaboracion"
-    t.text "descripcion", null: false, collation: "utf8_general_ci"
+    t.text "descripcion"
     t.bigint "moneda_id"
     t.integer "num_pagos"
     t.integer "porcen_anticipo"
     t.string "autoriza_cargo"
     t.string "forma_pago"
     t.integer "num_dias_plazo"
-    t.text "motivo_seleccion", null: false, collation: "utf8_general_ci"
+    t.text "motivo_seleccion"
     t.boolean "economica", default: true
     t.integer "eficiencia_eficacia", default: 0
     t.string "lugar_entrega"
@@ -67,19 +67,19 @@ ActiveRecord::Schema.define(version: 20200527163848) do
     t.index ["tipo_id"], name: "index_justificaciones_on_tipo_id"
   end
 
-  create_table "monedas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "monedas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "code"
     t.string "nombre"
     t.string "simbolo"
   end
 
-  create_table "partidas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "partidas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "nombre"
     t.bigint "tipo_id"
     t.index ["tipo_id"], name: "index_partidas_on_tipo_id"
   end
 
-  create_table "proveedores", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "proveedores", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "clave"
     t.bigint "justificacion_id"
     t.string "razon_social"
@@ -102,7 +102,7 @@ ActiveRecord::Schema.define(version: 20200527163848) do
     t.index ["moneda_id"], name: "index_proveedores_on_moneda_id"
   end
 
-  create_table "tipos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "tipos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "code"
     t.integer "fraccion"
     t.datetime "created_at", null: false
