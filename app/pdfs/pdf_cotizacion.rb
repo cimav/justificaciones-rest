@@ -25,7 +25,6 @@ class PdfCotizacion < Prawn::Document
       email_acuse = "jorge.parra@cimav.edu.mx"
     end
 
-=begin
     font_families.update("Arial" => {
         :normal => "public/assets/fonts/Arial.ttf",
         :italic => "public/assets/fonts/Arial Italic.ttf",
@@ -33,7 +32,6 @@ class PdfCotizacion < Prawn::Document
         :bold_italic => "public/assets/fonts/Arial Bold Italic.ttf"
     })
     font "Arial"
-=end
 
     image "public/logo-cimav.png", :at=>[bounds.left, bounds.top+2], :scale=>0.90
 

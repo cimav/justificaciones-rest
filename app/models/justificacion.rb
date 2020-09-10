@@ -9,6 +9,7 @@ class Justificacion < ApplicationRecord
   belongs_to :creador, class_name: 'Empleado',  foreign_key: :creador_id
   belongs_to :autorizo, class_name: 'Empleado',  foreign_key: :autorizo_id
   belongs_to :elaboro, class_name: 'Empleado',  foreign_key: :elaboro_id
+  belongs_to :asesor, class_name: 'Empleado',  foreign_key: :asesor_id, optional: true
 
   attr_accessor :biensServicios, :creador_cuenta_cimav
 
@@ -28,6 +29,10 @@ class Justificacion < ApplicationRecord
 
   def creador_cuenta_cimav
     creador.cuenta_cimav
+  end
+
+  def asesor_cuenta_cimav
+    return asesor ? asesor.cuenta_cimav : nil
   end
 
 

@@ -8,6 +8,11 @@ class EmpleadosController  < ApplicationController
   def show
   end
 
+  def asesores
+    @asesores = Empleado.where(id: [451, 435, 362]).order(:nombre)
+    render json: @asesores, status: :ok
+  end
+
   def cuenta
     # @empleado = Empleado.find_by_cuenta_cimav(params[:cuenta_cimav]) # where("cuenta_cimav like '%#{params[:cuenta_cimav]}%'").first
     cuenta_cimav = params[:cuenta_cimav]
@@ -21,7 +26,8 @@ class EmpleadosController  < ApplicationController
     if @empleado
       asistentes =  Asistente.where("asistente_id = #{@empleado.id}")
       @empleado.is_asistente = asistentes.length > 0
-      @empleado.is_admin = asistentes.any? {|h| h['creador_id'] == 999}
+      @empleado.is_admin = asistentes.any? {|h| h['creador_id'] == 901}
+      @empleado.is_asesor = asistentes.any? {|h| h['creador_id'] == 902}
       # Asistente.where("asistente_id = #{@empleado.id} AND creador_id = 999").length > 0
     end
     # render json: @empleado, status: :ok Sin Render pq omite los attr_accessor
@@ -29,7 +35,7 @@ class EmpleadosController  < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def empleado_params
-    params.require(:persona).permit(:id, :tipo, :clave, :nombre, :sede, :cuenta_cimav, :is_admin, :is_asistente)
+    params.require(:persona).permit(:id, :tipo, :clave, :nombre, :sede, :cuenta_cimav, :is_admin, :is_asistente, :is_asesor)
   end
 
 end
