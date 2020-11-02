@@ -9,18 +9,18 @@ class PdfMercado < Prawn::Document
 
     direccion_cimav = "Miguel de Cervantes 120, Complejo Industrial Chihuahua\nChihuahua, Chih. México. C.P. 31136"
 
-    font_families.update("Arial" => {
-        :normal => "public/assets/fonts/Arial.ttf",
-        :italic => "public/assets/fonts/Arial Italic.ttf",
-        :bold => "public/assets/fonts/Arial Bold.ttf",
-        :bold_italic => "public/assets/fonts/Arial Bold Italic.ttf"
+    self.font_families.update("Arial" => {
+        :normal => Rails.root.join("public/assets/fonts/Arial.ttf"),
+        :italic => Rails.root.join("public/assets/fonts/Arial-Italic.ttf"),
+        :bold => Rails.root.join("public/assets/fonts/Arial-Bold.ttf"),
+        :bold_italic => Rails.root.join("public/assets/fonts/Arial-Bold-Italic.ttf")
     })
     font "Arial"
 
-    image "public/logo-cimav.png", :at=>[bounds.left, bounds.top+2], :scale=>0.90
+    image "#{Rails.root}/public/logo-cimav.png", :at=>[bounds.left, bounds.top+2], :scale=>0.90
 
     move_down 10
-    text 'Centro de Investigación en Materiales Avanzados S. C.', size: 16, style: :normal, align: :center
+    text 'CentroM de Investigación en Materiales Avanzados S. C.', size: 16, style: :normal, align: :center
 
     stroke do
       move_down 8

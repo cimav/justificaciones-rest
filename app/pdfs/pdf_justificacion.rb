@@ -88,11 +88,18 @@ de Adquisiciones, Arrendamientos y Servicios del Sector Público, publicado en e
                     'Aplicación General en Materia de Adquisiciones, Arrendamientos y Servicios del Sector Público, '+
                     'publicado en el Diario Oficial de la Federación el 21 de noviembre de 2012.']
 
-    font_families.update("Arial" => {
-        :normal => "public/assets/fonts/Arial.ttf",
-        :italic => "public/assets/fonts/Arial Italic.ttf",
-        :bold => "public/assets/fonts/Arial Bold.ttf",
-        :bold_italic => "public/assets/fonts/Arial Bold Italic.ttf"
+ #   font_families.update("Arial" => {
+ #       :normal => "public/assets/fonts/Arial.ttf",
+ #       :italic => "public/assets/fonts/Arial Italic.ttf",
+ #       :bold => "public/assets/fonts/Arial Bold.ttf",
+ #       :bold_italic => "public/assets/fonts/Arial Bold Italic.ttf"
+ #   })
+ #   font "Arial"
+    self.font_families.update("Arial" => {
+        :normal => Rails.root.join("public/assets/fonts/Arial.ttf"),
+        :italic => Rails.root.join("public/assets/fonts/Arial-Italic.ttf"),
+        :bold => Rails.root.join("public/assets/fonts/Arial-Bold.ttf"),
+        :bold_italic => Rails.root.join("public/assets/fonts/Arial-Bold-Italic.ttf")
     })
     font "Arial"
 
@@ -266,7 +273,8 @@ que el procedimiento de contratación por adjudicación directa es el idóneo.".
       text 'IV.1. MOTIVACIÓN Y FUNDAMENTACIÓN LEGAL:', style: :bold
     end
     move_down 20
-    proyect = @justificacion.proyecto.to_s
+    #proyect = @justificacion.proyecto.to_s
+    proyect = "#{@justificacion.proyecto.to_s} - #{@justificacion.proyecto_objeto}"
     indent(50) do
       text "<b>A) MOTIVOS:</b> La contratación de los  #{@justificacion.biensServicios} objeto de la presente justificación es necesaria "+
                "para satisfacer los siguientes requerimientos del proyecto número <b>#{proyect}</b>: #{@justificacion.razon_compra}.\n"+

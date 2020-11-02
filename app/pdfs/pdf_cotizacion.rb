@@ -25,11 +25,19 @@ class PdfCotizacion < Prawn::Document
       email_acuse = "jorge.parra@cimav.edu.mx"
     end
 
-    font_families.update("Arial" => {
-        :normal => "public/assets/fonts/Arial.ttf",
-        :italic => "public/assets/fonts/Arial Italic.ttf",
-        :bold => "public/assets/fonts/Arial Bold.ttf",
-        :bold_italic => "public/assets/fonts/Arial Bold Italic.ttf"
+#    font_families.update("Arial" => {
+#        :normal => "public/assets/fonts/Arial.ttf",
+#        :italic => "public/assets/fonts/Arial Italic.ttf",
+#        :bold => "public/assets/fonts/Arial Bold.ttf",
+#        :bold_italic => "public/assets/fonts/Arial Bold Italic.ttf"
+#    })
+#    font "Arial"
+
+    self.font_families.update("Arial" => {
+        :normal => Rails.root.join("public/assets/fonts/Arial.ttf"),
+        :italic => Rails.root.join("public/assets/fonts/Arial-Italic.ttf"),
+        :bold => Rails.root.join("public/assets/fonts/Arial-Bold.ttf"),
+        :bold_italic => Rails.root.join("public/assets/fonts/Arial-Bold-Italic.ttf")
     })
     font "Arial"
 
