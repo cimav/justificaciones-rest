@@ -13,6 +13,7 @@ development:
   <<: *default
   pool: 5
   host: localhost
+  password: root
   database: justificaciones_development
 
 production:

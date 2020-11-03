@@ -26,3 +26,5 @@ rbenv local 2.6.3
  /usr/local/opt/mysql@8.0/support-files/mysql.server stop
 
  scp -r calderas@10.0.2.208:/Users/calderas/Documents/proyectos/angular/justificaciones-ui/dist/* /home/rails/justificaciones-rest/public
+
+taskkill /PID 1234
