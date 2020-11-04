@@ -1,9 +1,9 @@
 class PdfConstanciaExistencia < Prawn::Document
 
   def initialize(requisiciones)
-    super(:page_layout => :landscape)
+    super(:page_layout => :landscape, :page_size => "A4")
 
-    #stroke_axis
+    # stroke_axis
 
     direccion_cimav = "Miguel de Cervantes 120, Complejo Industrial Chihuahua\nChihuahua, Chih. México. C.P. 31136"
 
@@ -29,27 +29,40 @@ class PdfConstanciaExistencia < Prawn::Document
         move_down 14
         text 'Constancia de Existencia', size: 16, style: :bold, align: :center
         move_down 4
-        text "Requisición: #{requi_first['requisicion']}", size: 11, style: :normal
-        text "Partida: #{requi_first['partida'].to_s}", size: 11, style: :normal
+        text "Núm. Requisición: #{requi_first['requisicion']}", size: 11, style: :normal
         fecha_req = fecha(Date.parse requi_first['fecha_requisicion'].to_s) rescue 'Falla'
-        text "Fecha: #{fecha_req}", size: 11, style: :normal
+        text "Fecha Requisición: #{fecha_req}", size: 11, style: :normal
 
         move_down 10
-        celda0 = {:content => '<b>Unidad</b>',:inline_format => true, size: 10, :borders => [:bottom], :border_color => "b3b3b3"}
-        celda1 = {:content => '<b>Cantidad</b>',:inline_format => true, align: :right, size: 10, :borders => [:bottom], :border_color => "b3b3b3"}
-        celda2 = {:content => '<b>Descripción</b>',:inline_format => true, align: :center, size: 10, :borders => [:bottom], :border_color => "b3b3b3"}
-        celda3 = {:content => '<b>Existencia</b>',:inline_format => true, align: :right, size: 10, :borders => [:bottom], :border_color => "b3b3b3"}
-        celda4 = {:content => '<b>Observaciones</b>',:inline_format => true, align: :center, size: 10, :borders => [:bottom], :border_color => "b3b3b3"}
-        data = [[celda0, celda1, celda2, celda3, celda4]]
+        data = [[
+          {:content => '<b>Partida</b>',:inline_format => true, align: :center,size: 8, :borders => [:bottom], :border_color => "b3b3b3"},
+          {:content => '<b>Unidad</b>',:inline_format => true, align: :center,size: 8, :borders => [:bottom], :border_color => "b3b3b3"},
+          {:content => '<b>Cant.</b>',:inline_format => true, align: :center, size: 8, :borders => [:bottom], :border_color => "b3b3b3"},
+          {:content => '<b>Descripción</b>',:inline_format => true, align: :center, size: 8, :borders => [:bottom], :border_color => "b3b3b3"},
+          {:content => '<b>Existencia</b>',:inline_format => true, align: :center, size: 8, :borders => [:bottom], :border_color => "b3b3b3"},
+          {:content => '<b>Entrada</b>',:inline_format => true, align: :center, size: 8, :borders => [:bottom], :border_color => "b3b3b3"},
+          {:content => '<b>Disponible</b>',:inline_format => true, align: :center, size: 8, :borders => [:bottom], :border_color => "b3b3b3"},
+          {:content => '<b>Bienes</b>',:inline_format => true, align: :center, size: 8, :borders => [:bottom], :border_color => "b3b3b3"},
+          {:content => '<b>Observaciones</b>',:inline_format => true, align: :center, size: 8, :borders => [:bottom], :border_color => "b3b3b3"},
+          {:content => '<b>Rotación</b>',:inline_format => true, align: :center, size: 8, :borders => [:bottom], :border_color => "b3b3b3"}
+        ]]
+        # data = [[celda1, celda2, celda3, celda4, celda5, celda6, celda]]
         requisiciones.map do |requi|
-          celda0 = {:content => "#{requi['unidad']}", size: 10, :borders => [:left, :right, :top, :bottom], :border_color => "b3b3b3", :inline_format => true, :padding => 2}
-          celda1 = {:content => "#{requi['cantidad']}", size: 10, :borders => [:left, :right, :top, :bottom], :border_color => "b3b3b3", :inline_format => true, :padding => 2}
-          celda2 = {:content => "#{requi['descripcion']}", size: 10, :borders => [:left, :right, :top, :bottom], :border_color => "b3b3b3", :inline_format => true, :padding => 2}
-          celda3 = {:content => "", size: 10, :borders => [:left, :right, :top, :bottom], :border_color => "b3b3b3", :inline_format => true, :padding => 2}
-          celda4 = {:content => "", size: 10, :borders => [:left, :right, :top, :bottom], :border_color => "b3b3b3", :inline_format => true, :padding => 2}
-          data.push([celda0, celda1, celda2, celda3, celda4])
+          data.push([
+            {:content => "#{requi['partida']}", size: 8, :borders => [:left, :right, :top, :bottom], :border_color => "b3b3b3", :inline_format => true, :padding => 2},
+            {:content => "#{requi['unidad']}", size: 8, :borders => [:left, :right, :top, :bottom], :border_color => "b3b3b3", :inline_format => true, :padding => 2},
+            {:content => "#{requi['cantidad']}", size: 8, :borders => [:left, :right, :top, :bottom], :border_color => "b3b3b3", :inline_format => true, :padding => 2},
+            {:content => "#{requi['descripcion']}", size: 8, :borders => [:left, :right, :top, :bottom], :border_color => "b3b3b3", :inline_format => true, :padding => 2},
+            {:content => "", size: 8, :borders => [:left, :right, :top, :bottom], :border_color => "b3b3b3", :inline_format => true, :padding => 2},
+            {:content => "", size: 8, :borders => [:left, :right, :top, :bottom], :border_color => "b3b3b3", :inline_format => true, :padding => 2},
+            {:content => "", size: 8, :borders => [:left, :right, :top, :bottom], :border_color => "b3b3b3", :inline_format => true, :padding => 2},
+            {:content => "", size: 8, :borders => [:left, :right, :top, :bottom], :border_color => "b3b3b3", :inline_format => true, :padding => 2},
+            {:content => "", size: 8, :borders => [:left, :right, :top, :bottom], :border_color => "b3b3b3", :inline_format => true, :padding => 2},
+            {:content => "", size: 8, :borders => [:left, :right, :top, :bottom], :border_color => "b3b3b3", :inline_format => true, :padding => 2}
+        ])
+          # data.push([celda0, celda0, celda1, celda2, celda3, celda4])
         end
-        table(data, :column_widths => [50, 60, 350, 60, 200])
+        table(data, :column_widths => [40, 40, 40, 250, 60, 50, 50, 50, 134, 55])
 
         if cursor < 80
           start_new_page
@@ -57,18 +70,18 @@ class PdfConstanciaExistencia < Prawn::Document
 
         row = 80
         draw_text :"#{requi_first['solicitante']}", size: 11, :at=>[40, row]
-        draw_text :"Pablo Guillermo Herrera Chávez", size: 11, :at=>[470, row]
+        draw_text :"#{requi_first['responsable']}", size: 11, :at=>[470, row]
         row -= 15
         draw_text :"Solicitante", size: 11, :at=>[80, row]
         draw_text :"Responsable almacén", size: 11, :at=>[500, row]
         row -= 20
         draw_text :"NOTA: Esta constancia, sólo es válida con el sello del almacén.", size: 9, :at=>[0, row]
         row -= 14
-        draw_text :"OBJETIVO: Garantizar que el área requirente verificó en el almacen el nivel de existencia de los bienes que requiere y en su caso justificar la adquisición de los mismos como", size: 9, :at=>[0, row]
+        draw_text :"OBJETIVO: Garantizar que el área requirente verificó en el almacen el nivel de existencia de los bienes que requiere y en su caso justificar la adquisición de los mismos como resultado de", size: 9, :at=>[0, row]
         row -= 10
-        draw_text :"resultado de las estrategias determinadas por la dependencia o entidad para el adecuado control de los inventarios (artículo 27 del Reglamento de la Ley de Adquisiciones,", size: 9, :at=>[0, row]
+        draw_text :"las estrategias determinadas por la dependencia o entidad para el adecuado control de los inventarios (artículo 27 del Reglamento de la Ley de Adquisiciones, Arrendamientos y Servicios", size: 9, :at=>[0, row]
         row -= 10
-        draw_text :"Arrendamientos y Servicios del Sector Público).", size: 9, :at=>[0, row]
+        draw_text :"del Sector Público).", size: 9, :at=>[0, row]
 
       rescue StandardError => e
         print e

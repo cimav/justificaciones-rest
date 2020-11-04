@@ -27,4 +27,6 @@ rbenv local 2.6.3
 
  scp -r calderas@10.0.2.208:/Users/calderas/Documents/proyectos/angular/justificaciones-ui/dist/* /home/rails/justificaciones-rest/public
 
+PowerShell en Win10
+C:\Users\Calderas\Documents\projects\angular\justificaciones-ui> scp -r .\dist\* calderas@10.0.4.37:/home/calderas/distro
 taskkill /PID 1234
