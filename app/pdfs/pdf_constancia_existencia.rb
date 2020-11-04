@@ -70,7 +70,7 @@ class PdfConstanciaExistencia < Prawn::Document
 
         row = 80
         draw_text :"#{requi_first['solicitante']}", size: 11, :at=>[40, row]
-        draw_text :"#{requi_first['responsable']}", size: 11, :at=>[470, row]
+        draw_text :"#{requi_first['responsable_almacen']}", size: 11, :at=>[470, row]
         row -= 15
         draw_text :"Solicitante", size: 11, :at=>[80, row]
         draw_text :"Responsable almacén", size: 11, :at=>[500, row]
