@@ -23,7 +23,7 @@ Rails.application.routes.draw do
 
   get '/requisiciones_netmultix/search/:requisicion', to: 'requisiciones_netmultix#search'
 
-  get '/requisiciones_netmultix/constancia_existencia/:requisicion/:responsable_almacen', to: 'requisiciones_netmultix#constancia_existencia'
+  get '/requisiciones_netmultix/constancia_existencia/:requisicion', to: 'requisiciones_netmultix#constancia_existencia'
 
   get '/proyectos_netmultix/search/:proyecto', to: 'proyectos_netmultix#search'
 
