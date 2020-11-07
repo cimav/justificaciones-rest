@@ -198,8 +198,11 @@ GEM
     websocket-extensions (0.1.5)
 
 PLATFORMS
+  java
   ruby
   x64-mingw32
+  x86-mingw32
+  x86-mswin32
 
 DEPENDENCIES
   byebug
@@ -225,4 +228,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   2.1.4
+   2.2.0.rc.1

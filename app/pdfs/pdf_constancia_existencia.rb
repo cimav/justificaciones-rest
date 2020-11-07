@@ -72,7 +72,7 @@ class PdfConstanciaExistencia < Prawn::Document
         draw_text :"#{requi_first['solicitante']}", size: 11, :at=>[40, row]
         row -= 15
         draw_text :"Solicitante", size: 11, :at=>[80, row]
-        draw_text :"Responsable almacén", size: 11, :at=>[500, row]
+        draw_text :"Almacén", size: 11, :at=>[500, row]
         row -= 20
         draw_text :"NOTA: Esta constancia, sólo es válida con el sello del almacén.", size: 9, :at=>[0, row]
         row -= 14
