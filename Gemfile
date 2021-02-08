@@ -59,7 +59,7 @@ group :production do
   gem 'therubyracer', :platform => :ruby
 end
 
-gem 'carrierwave', '~> 1.0'
+gem 'carrierwave', '~> 1.3'
 
 gem "haml-rails", "~> 2.0"
 
