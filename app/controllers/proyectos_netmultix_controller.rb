@@ -13,7 +13,7 @@ class ProyectosNetmultixController < ApplicationController
 =end
 
     query = <<-SQL
-      SELECT pr10_proyecto as proyecto, pr10_desc as objeto, TRIM(pr10_responsable) as clave 
+      SELECT TRIM(pr10_proyecto) as proyecto, TRIM(pr10_desc) as objeto, TRIM(pr10_responsable) as clave 
       FROM pr10
       WHERE pr10_proyecto = '#{params[:proyecto].strip}'
     SQL
